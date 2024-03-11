@@ -117,22 +117,6 @@
     <!-- Custom js for this page -->
 
 
-    <script src="{{ asset('backend/assets/js/dashboard-light.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/chartjs-light.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/morrisjs-light.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/apexcharts-light-rtl.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/apexcharts-light.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/sortablejs-light.js') }}"></script>
-
-    {{-- <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/chartjs-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/morrisjs-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/apexcharts-dark-rtl.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/apexcharts-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/sortablejs-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/jquery.flot-dark.js') }}"></script> --}}
-
-
     <script src="{{ asset('backend/assets/js/jquery.flot-light.js') }}"></script>
     <!-- End custom js for this page -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -173,6 +157,24 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('backend/assets/js/data-table.js') }}"></script>
     <!-- End custom js for this page -->
+
+
+    <script src="{{ asset('backend/assets/js/dashboard-light.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/chartjs-light.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/morrisjs-light.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/apexcharts-light-rtl.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/apexcharts-light.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/sortablejs-light.js') }}"></script>
+
+
+    {{-- <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script> --}}
+    {{-- <script src="{{ asset('backend/assets/js/chartjs-dark.js') }}"></script> --}}
+    {{-- <script src="{{ asset('backend/assets/js/morrisjs-dark.js') }}"></script> --}}
+    {{-- <script src="{{ asset('backend/assets/js/apexcharts-dark-rtl.js') }}"></script> --}}
+    {{-- <script src="{{ asset('backend/assets/js/apexcharts-dark.js') }}"></script> --}}
+    {{-- <script src="{{ asset('backend/assets/js/sortablejs-dark.js') }}"></script> --}}
+    {{-- <script src="{{ asset('backend/assets/js/jquery.flot-dark.js') }}"></script> --}}
+
 
 </body>
 

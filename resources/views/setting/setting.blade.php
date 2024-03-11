@@ -30,6 +30,28 @@
                 <img src="{{ asset('backend/assets/images/screenshots/dark.jpg') }}" alt="dark theme">
             </a>
         </div>
+
+        <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
+            <h5 class="mb-1 text-base leading-none dark:text-white">Router Transition</h5>
+            <p class="text-xs text-white-dark">Animation of main content.</p>
+            <div class="mt-3">
+                <select x-model="$store.app.animation" class="form-select border-primary text-primary"
+                    @change="$store.app.toggleAnimation()">
+                    <option value="">None</option>
+                    <option value="animate__fadeIn">Fade</option>
+                    <option value="animate__fadeInDown">Fade Down</option>
+                    <option value="animate__fadeInUp">Fade Up</option>
+                    <option value="animate__fadeInLeft">Fade Left</option>
+                    <option value="animate__fadeInRight">Fade Right</option>
+                    <option value="animate__slideInDown">Slide Down</option>
+                    <option value="animate__slideInLeft">Slide Left</option>
+                    <option value="animate__slideInRight">Slide Right</option>
+                    <option value="animate__zoomIn">Zoom In</option>
+                </select>
+            </div>
+        </div>
+
+
     </div>
 </nav>
 <script>
