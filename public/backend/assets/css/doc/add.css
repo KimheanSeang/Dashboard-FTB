@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+    --color-primary: rgb(12, 77, 162);
+    /* --color-primary: #6c9bcf; */
+    --color-danger: #ff0060;
+    --color-success: #1b9c85;
+    --color-warning: #f7d060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+.container2 {
+    margin-left: 20px;
+    display: grid;
+    margin-top: 80px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    height: 88%;
+    width: 97%;
+    color: var(--color-dark);
+}
+
+.container2 .card-body label {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+.container2 .form-list {
+    margin: 0;
+}
+
+.container2 .form-list label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.container2 .form-list select {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
+.container2 .form-list select option {
+    font-size: 16px;
+}
+
+.container2 .form-list select option:hover {
+    background-color: #ddd;
+}
+
+.container2 .card-header {
+    text-align: center;
+    font-size: 18px;
+    background-color: rgb(12, 77, 162);
+    color: var(--color-white);
+    padding: 0.7rem;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+}
+
+/* .container2 .card-body {
+  padding: 1.5rem;
+} */
+.back_button h1 {
+    font-weight: 500;
+    display: inline-block;
+    font-family: "Eras ITC", "Eras Light ITC", sans-serif;
+}
+.container2 form {
+    margin-left: -25%;
+    width: 150%;
+}
+
+.container2 .form-group label {
+    color: var(--color-dark);
+}
+
+.container2 .form-control-file {
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-1);
+    padding: 8px;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.container2 .btn.btn-info {
+    width: 10%;
+    margin-top: 5px !important;
+    background-color: rgb(196, 160, 6);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.container2 .form-group {
+    margin-bottom: 5px;
+}
+
+main .alert {
+    text-align: center;
+}
+
+/* Style the label */
+.container2 label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Style the input field */
+.container2 input[type="text"] {
+    background-color: var(--color-background);
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}

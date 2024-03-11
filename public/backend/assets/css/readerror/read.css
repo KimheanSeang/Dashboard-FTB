@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+    --color-blue: rgb(12, 77, 162);
+    --color-button: rgb(196, 160, 6);
+    --color-text: #ff0800;
+    --color-primary: rgb(12, 77, 162);
+    --color-danger: #ff0060;
+    --color-success: #1b9c85;
+    --color-warning: #f7d060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* main  */
+.back_button h1 {
+    display: inline-block;
+    font-family: "Eras ITC", "Eras Light ITC", sans-serif;
+}
+.container2 .head {
+    margin-bottom: 10px;
+    display: inline-flex;
+}
+
+.container2 .head a {
+    color: rgb(196, 160, 6);
+}
+.container2 .head h2 {
+    margin-left: 30px;
+    text-align: center;
+    font-family: "Eras ITC", "Eras Light ITC", sans-serif;
+    font-size: 25px;
+    color: #333;
+}
+
+.container2 label {
+    margin-left: 280px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #181a1e;
+    font-weight: bold;
+}
+.container2 .item {
+    /* display: grid; */
+    display: flex;
+}
+.container2 .item .file {
+    font-family: "Eras ITC", "Eras Light ITC", sans-serif;
+    width: 260px;
+}
+.container2 .file {
+    color: #edeffd;
+    background-color: rgb(12, 77, 162);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.container2 .search {
+    font-family: "Eras ITC", "Eras Light ITC", sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 10px;
+    width: 560px;
+    border: 1px solid var(--color-dark);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.container2 .search:hover {
+    border: 1px solid gray;
+}
+
+.container2 button {
+    font-family: "Eras ITC", "Eras Light ITC", sans-serif;
+    margin-left: 10px;
+    background-color: rgb(196, 160, 6);
+    color: var(--color-white);
+    border-radius: 8px;
+    height: 6vh;
+    width: 130px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    border: none;
+}
+.container2 button:hover {
+    border: none;
+    background-color: rgb(196, 160, 6);
+}
+#output {
+    height: 100vh;
+    font-size: 15px;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-width: 200vh;
+    max-height: 75vh;
+    border-radius: 8px;
+    margin-top: 0px;
+    padding: 20px;
+    border: 0.6px solid #2c2b2b;
+    white-space: nowrap;
+}
+
+.container2 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    display: grid;
+    margin-top: 80px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    height: 88vh;
+    width: 163vh;
+    color: var(--color-dark);
+}
+
+.container2 .btn.btn-info {
+    margin-top: 5px;
+    background-color: rgb(196, 160, 6);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.container2 .form-group {
+    margin-bottom: 10px;
+}
+.container2 .note h2 {
+    margin-left: 20px;
+    color: var(--color-blue);
+    margin-top: 0;
+    margin-left: 20px;
+    display: inline-flex;
+    font-size: 14px;
+}
+/* end main  */

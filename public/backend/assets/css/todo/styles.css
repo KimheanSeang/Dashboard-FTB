@@ -1,0 +1,139 @@
+:root {
+    --color-primary: rgb(12, 77, 162);
+    /* --color-primary: #6c9bcf; */
+    --color-danger: #ff0060;
+    --color-success: #1b9c85;
+    --color-warning: #f7d060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #ffffff;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.card-body h1 {
+    font-size: 22px;
+}
+.card-body h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.todo-button {
+    display: grid;
+}
+
+.todo-button button {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 3px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-background);
+    color: black;
+}
+.todo-button button:hover {
+    border: none;
+    background-color: #f0f0f0;
+}
+.tags-button {
+    display: grid;
+}
+.tags-button button {
+    font-weight: 600;
+    text-align: left;
+    margin-top: 3px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-background);
+    color: black;
+}
+.tags-button button:hover {
+    border: none;
+    background-color: #f0f0f0;
+}
+.tags-button .team {
+    color: rgb(3, 120, 3);
+}
+.tags-button .low {
+    color: blue;
+}
+.tags-button .medium {
+    color: red;
+}
+.tags-button .hight {
+    color: greenyellow;
+}
+.card-body .add-button {
+    width: 30vh;
+    height: 5vh;
+    color: white;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(30, 117, 231);
+}
+.button-save {
+    color: white;
+    border-radius: 6px;
+    border: none;
+    height: 4.5vh;
+    width: 15vh;
+    background-color: rgb(197, 162, 6);
+}
+
+.todo-button button {
+    transition: background-color 0.3s ease;
+}
+
+/* Add styles for active button */
+.todo-button button.active {
+    background-color: #f0f0f0;
+}
+
+.status1 {
+    text-align: center;
+    background-color: rgb(197, 162, 6);
+    border-radius: 20px;
+    width: 10vh;
+    border: none;
+    color: rgb(255, 255, 255);
+}
+
+.star {
+    padding: none;
+    visibility: hidden;
+    font-size: 25px;
+    cursor: pointer;
+}
+.star:before {
+    color: rgb(197, 162, 6);
+    content: "\2605";
+    position: absolute;
+    visibility: visible;
+}
+.star:checked:before {
+    content: "\2606";
+    position: absolute;
+}
