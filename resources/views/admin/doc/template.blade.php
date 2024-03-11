@@ -55,8 +55,6 @@
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/doc/all_doc.css') }}">
 
-
-
 </head>
 
 {{-- <body class="sidebar-dark"> --}}
@@ -76,18 +74,18 @@
 
             <!-- partial:partials/_navbar.html -->
             @include('admin.body.header')
-            <!-- partial -->
+
 
             @yield('admin')
 
+
             <!-- partial:partials/_footer.html -->
-            {{-- @include('admin.body.footer') --}}
+            @include('admin.body.footer')
             <!-- partial -->
 
         </div>
 
     </div>
-
 
     <!-- core:js -->
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>

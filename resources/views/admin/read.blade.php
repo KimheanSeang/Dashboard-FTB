@@ -55,7 +55,7 @@
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/readerror/read.css') }}">
     {{-- <script src="{{ asset('backend/assets/js/tinymce/tinymce.min.js') }}"></script> --}}
-
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
 </head>
 
 {{-- <body class="sidebar-dark"> --}}
@@ -77,8 +77,11 @@
             @include('admin.body.header')
             <!-- partial -->
 
-            @yield('admin')
+            <div class=" animate__animated animate__fadeInDown">
 
+                @yield('admin')
+
+            </div>
             <!-- partial:partials/_footer.html -->
             @include('admin.body.footer')
             <!-- partial -->
@@ -86,7 +89,11 @@
         </div>
 
     </div>
-
+    <script>
+        $(document).ready(function() {
+            $('.page-wrapper').addClass('animate__animated animate__fadeInDown');
+        });
+    </script>
 
     <!-- core:js -->
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>

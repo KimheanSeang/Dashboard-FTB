@@ -57,34 +57,31 @@
         }
     </style>
 
-
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
 </head>
 
-{{-- <body class="sidebar-dark"> --}}
 
 <body>
 
     <div class="main-wrapper">
 
-        <!-- partial:partials/_sidebar.html -->
-
         @include('admin.body.sidebar')
 
         @include('setting.setting')
-        <!-- partial -->
+
 
         <div class="page-wrapper">
 
-            <!-- partial:partials/_navbar.html -->
             @include('admin.body.header')
-            <!-- partial -->
 
-            @yield('admin')
+            <div class=" animate__animated animate__fadeInDown">
+                @yield('admin')
 
-            <!-- partial:partials/_footer.html -->
+            </div>
+            {{-- @yield('admin') --}}
+
+
             @include('admin.body.footer')
-            <!-- partial -->
-
         </div>
 
     </div>
@@ -166,16 +163,16 @@
     <script src="{{ asset('backend/assets/js/apexcharts-light.js') }}"></script>
     <script src="{{ asset('backend/assets/js/sortablejs-light.js') }}"></script>
 
+    {{-- <script>
+        $(document).ready(function() {
+            $('.page-wrapper').addClass('animate__animated animate__fadeInDown');
+        });
+    </script> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}"> --}}
 
-    {{-- <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/chartjs-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/morrisjs-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/apexcharts-dark-rtl.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/apexcharts-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/sortablejs-dark.js') }}"></script> --}}
-    {{-- <script src="{{ asset('backend/assets/js/jquery.flot-dark.js') }}"></script> --}}
+    {{-- <div class=" animate__animated animate__fadeInDown"> --}}
 
-
+    {{-- </div> --}}
 </body>
 
 </html>

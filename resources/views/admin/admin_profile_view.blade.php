@@ -1,8 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
     <div class="page-content">
-
-
         <div class="row profile-body">
             <!-- left wrapper start -->
             <div class="d-none d-md-block col-md-4 col-xl-4 left-wrapper">

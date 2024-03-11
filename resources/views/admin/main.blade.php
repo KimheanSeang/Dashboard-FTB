@@ -167,6 +167,7 @@
             @include('admin.body.header')
             <!-- partial -->
 
+
             @yield('admin')
 
             <!-- partial:partials/_footer.html -->

@@ -62,6 +62,8 @@
     <link rel="icon" href="/images/icon.jpg" type="image/x-icon">
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/todo/styles.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
 </head>
 
 
@@ -82,8 +84,11 @@
             <!-- partial:partials/_navbar.html -->
             @include('admin.body.header')
             <!-- partial -->
+            <div class=" animate__animated animate__fadeInDown">
+                @yield('admin')
 
-            @yield('admin')
+            </div>
+            {{-- @yield('admin') --}}
 
             <!-- partial:partials/_footer.html -->
             @include('admin.body.footer')
@@ -93,7 +98,7 @@
 
     </div>
 
-    <script src="{{ asset('backend/assets/js/reload/reload.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/js/reload/reload.js') }}"></script> --}}
 
     <style>
         @keyframes spin {
