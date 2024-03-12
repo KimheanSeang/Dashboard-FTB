@@ -13,35 +13,26 @@
 
     <title>Admin Dashboard</title>
 
-
-    <!-- End fonts -->
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- End fonts -->
-    {{-- link styles for setting --}}
+
     {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/setting/setting.css') }}"> --}}
-    {{-- end link styles for setting --}}
-    <!-- core:css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
-    <!-- endinject -->
-    <!-- Animation CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animation.css') }}">
+
+    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"> --}}
 
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/select2/select2.min.css') }}">
 
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.css') }}">
-    <!-- End plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
 
-    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animation.css') }}">
+
+
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('backend/assets/fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <!-- endinject -->
 
-    <!-- Layout styles -->
-    {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/app.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}" id="theme-style">
     <!-- End layout styles -->
@@ -59,9 +50,6 @@
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/doc/add.css') }}">
 
-
-
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/select2/select2.min.css') }}">
 
     <script src="{{ asset('backend/assets/js/tinymce/tinymce.min.js') }}"></script>
 
@@ -176,6 +164,7 @@
     </style>
 
 
+
 </head>
 
 
@@ -212,8 +201,7 @@
         </div>
 
     </div>
-    <script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/select2.js') }}"></script>
+
 
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
@@ -238,7 +226,7 @@
     <script src="{{ asset('backend/assets/js/active.js') }}"></script>
     {{-- end active for sidebar --}}
 
-    <script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
+
 
     <!-- Custom js for this page -->
     <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
@@ -282,6 +270,16 @@
     <script src="{{ asset('backend/assets/js/data-table.js') }}"></script>
     <!-- End custom js for this page -->
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#mySelect').select2();
+        });
+    </script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> --}}
 </body>
 
 </html>

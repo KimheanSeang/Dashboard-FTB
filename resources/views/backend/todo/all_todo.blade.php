@@ -362,6 +362,8 @@
                 $('#taskModalProcessValue').text(process); // Update the process value
                 $('#taskModal').modal('show');
             });
+
         });
     </script>
+
 @endsection

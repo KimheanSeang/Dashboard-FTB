@@ -33,10 +33,11 @@
                                         <input type="text" name="title" class="form-control" placeholder="Enter Title"
                                             required value="{{ isset($task) ? $task->title : '' }}">
                                     </div>
-                                    <label for="exampleInputRoleName" class="form-label">Name User</label>
-                                    <div class="form-group mb-3">
-                                        <select name="user_task" class="form-select" id="exampleFormControlSelect1">
-                                            <option disabled>Select User</option>
+                                    <label for="exampleInputRoleName" class="form-label">Select User</label>
+
+                                    <div class="form-group mb-1">
+                                        <select id="mySelect" name="user_task" style="width: 50%">
+                                            <option selected="" disabled="">Select User</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}"
                                                     {{ $user->name == $task->user_task ? 'selected' : '' }}>
