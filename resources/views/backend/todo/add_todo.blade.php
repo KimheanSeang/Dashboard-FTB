@@ -1,5 +1,6 @@
 @extends('admin.doc')
 @section('admin')
+
     <div class="page-content">
         <div class="row profile-body">
             <div class="col-md-8 col-xl-12 middle-wrapper">
@@ -22,23 +23,33 @@
                                     @csrf
 
                                     <label for="exampleInputName" class="form-label">Title</label>
-                                    <div class="form-group mb-3">
+                                    <div class="form-group mb-1">
                                         <input type="text" name="title" class="form-control" placeholder="Enter Title"
                                             required>
                                     </div>
-                                    <label for="exampleInputRoleName" class="form-label">Name User</label>
-                                    <div class="form-group mb-3">
+                                    {{-- <label for="exampleInputRoleName" class="form-label">Name User</label>
+                                    <div class="form-group mb-1">
                                         <select name="user_task" class="form-select" id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Select User</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->name }}">{{ $user->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
+                                    </div> --}}
 
+                                    <div class="mb-1">
+                                        <label class="form-label">Select User</label>
+                                        <select class="js-example-basic-single form-select" data-width="100%">
+                                            <option selected="" disabled="">Select User</option>
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->name }}">
+                                                    {{ $user->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <label for="description">Description:</label>
                                     <textarea id="myTextarea" name="description"></textarea>
-                                    <button type="submit" class="btn btn-warning me-2 mt-4">Create Task</button>
+                                    <button type="submit" class="btn btn-warning me-2 mt-2">Create Task</button>
                                 </form>
                             </div>
                         </div>
@@ -47,4 +58,5 @@
             </div>
         </div>
     </div>
+
 @endsection

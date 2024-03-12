@@ -145,7 +145,25 @@
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
         });
     </script>
+    <style>
+        .fade-down {
+            opacity: 0;
+            transform: translateY(-50%);
+            animation: fadeDownAnimation 0.8s ease-in-out forwards;
+        }
 
+        @keyframes fadeDownAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+    </style>
 </head>
 
 {{-- <body class="sidebar-dark"> --}}
@@ -167,8 +185,10 @@
             @include('admin.body.header')
             <!-- partial -->
 
-
-            @yield('admin')
+            <div class="fade-down">
+                @yield('admin')
+            </div>
+            {{-- @yield('admin') --}}
 
             <!-- partial:partials/_footer.html -->
             @include('admin.body.footer')

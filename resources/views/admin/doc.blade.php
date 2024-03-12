@@ -26,6 +26,10 @@
     <!-- core:css -->
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
     <!-- endinject -->
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animation.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/select2/select2.min.css') }}">
 
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.css') }}">
@@ -54,6 +58,11 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/todo/styles.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/doc/add.css') }}">
+
+
+
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/select2/select2.min.css') }}">
+
     <script src="{{ asset('backend/assets/js/tinymce/tinymce.min.js') }}"></script>
 
     <script>
@@ -146,10 +155,29 @@
         });
     </script>
 
+    <style>
+        .fade-down {
+            opacity: 0;
+            transform: translateY(-50%);
+            animation: fadeDownAnimation 0.8s ease-in-out forwards;
+        }
+
+        @keyframes fadeDownAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
 
 </head>
 
-{{-- <body class="sidebar-dark"> --}}
 
 <body>
 
@@ -168,7 +196,14 @@
             @include('admin.body.header')
             <!-- partial -->
 
-            @yield('admin')
+
+
+            <div class="fade-down">
+                @yield('admin')
+            </div>
+
+            {{-- @yield('admin') --}}
+
 
             <!-- partial:partials/_footer.html -->
             @include('admin.body.footer')
@@ -177,9 +212,9 @@
         </div>
 
     </div>
+    <script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/select2.js') }}"></script>
 
-
-    <!-- core:js -->
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
 
@@ -203,6 +238,7 @@
     <script src="{{ asset('backend/assets/js/active.js') }}"></script>
     {{-- end active for sidebar --}}
 
+    <script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
 
     <!-- Custom js for this page -->
     <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>

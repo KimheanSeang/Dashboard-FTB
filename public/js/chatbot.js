@@ -17,7 +17,7 @@ const loadDataFromLocalstorage = () => {
     document.body.classList.toggle("light-mode", themeColor === "light_mode");
     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
-    const defaultText = `<div class="default-text">
+    const defaultText = `<div class="default-text ">
     <img src="../images/chat.png" alt="chatbot-img">
         <h1>Chatbot</h1>
         <p>Hello how can I help you today?</p>

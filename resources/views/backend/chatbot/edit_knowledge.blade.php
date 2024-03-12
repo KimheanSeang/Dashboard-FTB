@@ -2,7 +2,9 @@
 @section('admin')
     <main>
         <div class="container2">
+
             <div class="wrapper">
+                <a href="{{ route('knowledge.chatbot') }}"><i class="mdi mdi-backspace" style="font-size: 20px"></i></a>
                 <form action="{{ route('update.chatbot', ['id' => $title->id]) }}" method="post"
                     enctype="multipart/form-data">
                     @csrf

@@ -44,7 +44,7 @@
                     <div class="card-body">
                         <div style="display: flex">
                             <h1 class="todo-h1">Todo list</h1>
-                            <div class="dropdown mb-2" style="margin-left: 17vh">
+                            <div class="dropdown mb-2" style="margin-left: 15vh">
                                 <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false" class="">
                                     <i data-feather="download"></i>
@@ -323,18 +323,19 @@
             </div>
         </div>
     </div>
-    <!-- Html for view task when click view in all task  -->
-    <div class="modal fade view" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Title: <span id="taskModalTitle"></span></h5>
                     {{-- <p
                         style="margin-left: 20vh;width: 15vh; background-color: rgb(197, 162, 6); text-align: center; color: white; border-radius: 20px;">
                         <span id="taskModalProcess" style=""></span>
                     </p> --}}
+                    <h5>Title: <span id="taskModalTitle"></span></h5>
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
                     <p>Description: <span id="taskModalDescription"></span></p>
                 </div>
@@ -344,6 +345,7 @@
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function() {
             // Function to show task details on view button click
@@ -357,7 +359,7 @@
                 // Show the modal with task details
                 $('#taskModalTitle').text(title);
                 $('#taskModalDescription').text(description);
-                $('#taskModalProcess').text(process);
+                $('#taskModalProcessValue').text(process); // Update the process value
                 $('#taskModal').modal('show');
             });
         });
