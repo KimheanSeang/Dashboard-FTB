@@ -34,7 +34,7 @@
                                                     <span class="badge bg-danger">{{ $prem->name }}</span>
                                                 @endforeach
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 @if (Auth::user()->can('edit.admin'))
                                                     <a href="{{ route('admin.edit.roles', $item->id) }}"
                                                         class="btn btn-warning">
@@ -44,6 +44,35 @@
                                                     <a href="{{ route('admin.delete.roles', $item->id) }}"
                                                         class="btn btn-danger" id="deleterolepermission">Delete</a>
                                                 @endif
+                                            </td> --}}
+                                            <td>
+                                                <div class="dropdown mb-2" class="edit_todo">
+                                                    <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false" class="">
+                                                        <i class="mdi mdi-dots-vertical" style="font-size: 20px"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                                        style="">
+                                                        @if (Auth::user()->can('edit.admin'))
+                                                            <a class="dropdown-item d-flex align-items-center"
+                                                                style="color: blue; "
+                                                                href="{{ route('admin.edit.roles', $item->id) }}">
+                                                                <i class="mdi mdi-table-edit"
+                                                                    style="margin-right: 10px; font-size: 2vh;color: blue;"></i>
+                                                                <span class="">Edit</span>
+                                                            </a>
+                                                        @endif
+                                                        @if (Auth::user()->can('delete.admin'))
+                                                            <a id="deleterolepermission" style="color: red"
+                                                                class="dropdown-item d-flex align-items-center"
+                                                                href="{{ route('admin.delete.roles', $item->id) }}">
+                                                                <i class="mdi mdi-delete-forever"
+                                                                    style="margin-right: 10px; font-size: 2vh;color: red;"></i>
+                                                                <span class="">Delete</span>
+                                                            </a>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

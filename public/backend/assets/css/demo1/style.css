@@ -5487,6 +5487,7 @@ div.tox .btn-group-vertical > .btn-group:not(:first-child) > .tox-button,
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: var(--bs-badge-border-radius);
+    padding-top: 2px;
 }
 .badge:empty {
     display: none;
@@ -22446,10 +22447,12 @@ div.tox .btn-group-lg > .btn-icon-text.tox-button .btn-icon-append,
 .table thead th i {
     margin-left: 0.325rem;
 }
+
 .table th,
 .table td {
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
+
 .table td img {
     width: 36px;
     height: 36px;

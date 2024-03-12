@@ -40,6 +40,7 @@
             background-position: center;
         }
     </style>
+
 </head>
 
 <body>
@@ -75,7 +76,6 @@
 
                     <button type="submit"
                         class="flex bg-blue-600 hover-shadow-none active:bg-blue-500 p-3 rounded-lg text-white text-[20px]">Login</button>
-
                     <p class="flex text-center justify-center text-gray-100">Please Contact Us To Create An Account<a
                             href="https://join.skype.com/pYIChcV0tLr4" style="color: blue; margin-left:10px;  "
                             target="_blank">

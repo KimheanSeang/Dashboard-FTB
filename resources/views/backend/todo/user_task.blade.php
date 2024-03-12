@@ -89,14 +89,14 @@
                                                                     </a>
                                                                     <div class="dropdown-menu"
                                                                         aria-labelledby="dropdownMenuButton" style="">
-                                                                        <button type="button"
+                                                                        <button type="button" style="color: blue;"
                                                                             class="dropdown-item d-flex align-items-center view-button"
                                                                             data-task-id="{{ $task->id }}">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                width="24" height="24"
-                                                                                viewBox="0 0 24 24" fill="none"
-                                                                                stroke="currentColor" stroke-width="2"
-                                                                                stroke-linecap="round"
+                                                                                style="color: blue;" width="24"
+                                                                                height="24" viewBox="0 0 24 24"
+                                                                                fill="none" stroke="currentColor"
+                                                                                stroke-width="2" stroke-linecap="round"
                                                                                 stroke-linejoin="round"
                                                                                 class="feather feather-eye icon-sm me-2">
                                                                                 <path
@@ -107,14 +107,14 @@
                                                                             </svg>
                                                                             <span>View</span>
                                                                         </button>
-                                                                        <a id="DeleteTask"
+                                                                        <a id="DeleteTask" style="color: red;"
                                                                             class="dropdown-item d-flex align-items-center"
                                                                             href="{{ route('remove.todo', ['id' => $task->id]) }}">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                width="24" height="24"
-                                                                                viewBox="0 0 24 24" fill="none"
-                                                                                stroke="currentColor" stroke-width="2"
-                                                                                stroke-linecap="round"
+                                                                                style="color: red;" width="24"
+                                                                                height="24" viewBox="0 0 24 24"
+                                                                                fill="none" stroke="currentColor"
+                                                                                stroke-width="2" stroke-linecap="round"
                                                                                 stroke-linejoin="round"
                                                                                 class="feather feather-trash icon-sm me-2">
                                                                                 <polyline points="3 6 5 6 21 6">

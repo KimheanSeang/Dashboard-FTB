@@ -44,25 +44,32 @@
                     <div class="card-body">
                         <div style="display: flex">
                             <h1 class="todo-h1">Todo list</h1>
-                            <div class="dropdown mb-2" style="margin-left: 15vh">
-                                <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false" class="">
-                                    <i data-feather="download"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                    <a class="dropdown-item d-flex align-items-center"
-                                        href="{{ route('export.all.task') }}">
-                                        <i class="mdi mdi-download" style="font-size: 2.4vh; margin-right: 5px"></i>
-                                        <span class="">Download All Task</span>
+                            @if (Auth::user()->can('export_task.menu'))
+                                <div class="dropdown mb-2" style="margin-left: 15vh">
+                                    <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" class="">
+                                        <i data-feather="download" style="color: rgb(197, 162, 6)"></i>
                                     </a>
-                                    <a class="dropdown-item d-flex align-items-center"
-                                        href="{{ route('export.trash.task') }}">
-                                        <i class="mdi mdi-export" style="font-size: 2.4vh; margin-right: 5px"></i>
-                                        <span class="">Donload Trash Task</span>
-                                    </a>
-
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
+                                        @if (Auth::user()->can('ex_all.task'))
+                                            <a class="dropdown-item d-flex align-items-center"
+                                                style="color: rgb(197, 162, 6);" href="{{ route('export.all.task') }}">
+                                                <i class="mdi mdi-download"
+                                                    style="font-size: 2.4vh; margin-right: 5px;color: rgb(197, 162, 6);"></i>
+                                                <span class="">Download All Task</span>
+                                            </a>
+                                            @if (Auth::user()->can('ex_trash.task'))
+                                            @endif
+                                            <a class="dropdown-item d-flex align-items-center"
+                                                style="color: rgb(12, 77, 162);" href="{{ route('export.trash.task') }}">
+                                                <i class="mdi mdi-export"
+                                                    style="font-size: 2.4vh; margin-right: 5px;color: rgb(12, 77, 162);"></i>
+                                                <span class="">Donload Trash Task</span>
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <hr>
                         <div class="todo-button">
@@ -73,10 +80,13 @@
                                     <i class="mdi mdi-format-list-bulleted-type"></i> Inbox
                                 </button>
                             @endif
+
                             <button type="button" class="done-button" onclick="filterTasks('Done')"><i
                                     class="mdi mdi-check-circle"></i> Done</button>
+
                             <button type="button" class="important-button" onclick="filterTasks('important')"><i
                                     class="mdi mdi-star-circle"></i> Important</button>
+
                             @if (Auth::user()->can('trash.task'))
                                 <button type="button" class="{{ Request::routeIs('trash.todo') ? 'active' : '' }}"
                                     onclick="navigateTo('{{ route('trash.todo') }}', 'trash')">
@@ -197,9 +207,11 @@
                                                                         @if (Request::routeIs('all.todo'))
                                                                             @if (Auth::user()->can('view.task'))
                                                                                 <button type="button"
+                                                                                    style="color:rgb(197, 162, 6);"
                                                                                     class="dropdown-item d-flex align-items-center view-button"
                                                                                     data-task-id="{{ $task->id }}">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        style="color:rgb(197, 162, 6);"
                                                                                         width="24" height="24"
                                                                                         viewBox="0 0 24 24" fill="none"
                                                                                         stroke="currentColor"
@@ -218,8 +230,10 @@
                                                                             @endif
                                                                             @if (Auth::user()->can('edit.task'))
                                                                                 <a class="dropdown-item d-flex align-items-center"
+                                                                                    style="color: blue;"
                                                                                     href="{{ route('edit.todo', ['id' => $task->id]) }}">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        style="color: blue;"
                                                                                         width="24" height="24"
                                                                                         viewBox="0 0 24 24" fill="none"
                                                                                         stroke="currentColor"
@@ -235,12 +249,13 @@
                                                                                 </a>
                                                                             @endif
                                                                             @if (Auth::user()->can('delete.task'))
-                                                                                <a id="DeleteTask"
+                                                                                <a id="DeleteTask" style="color: red;"
                                                                                     class="dropdown-item d-flex align-items-center"
                                                                                     href="{{ route('delete.todo', ['id' => $task->id]) }}">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="24" height="24"
-                                                                                        viewBox="0 0 24 24" fill="none"
+                                                                                        style="color: red;" width="24"
+                                                                                        height="24" viewBox="0 0 24 24"
+                                                                                        fill="none"
                                                                                         stroke="currentColor"
                                                                                         stroke-width="2"
                                                                                         stroke-linecap="round"
@@ -258,9 +273,11 @@
                                                                         @else
                                                                             @if (Auth::user()->can('recover.task'))
                                                                                 <a id="RecoverTask"
+                                                                                    style="color:rgb(12, 77, 162);"
                                                                                     class="dropdown-item d-flex align-items-center"
                                                                                     href="{{ route('recover.todo', ['id' => $task->id]) }}">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        style="color:rgb(12, 77, 162);"
                                                                                         width="24" height="24"
                                                                                         viewBox="0 0 24 24" fill="none"
                                                                                         stroke="currentColor"
@@ -281,12 +298,13 @@
                                                                                 </a>
                                                                             @endif
                                                                             @if (Auth::user()->can('permanent.task'))
-                                                                                <a id="DeletePermanent"
+                                                                                <a id="DeletePermanent" style="color:red;"
                                                                                     class="dropdown-item d-flex align-items-center"
                                                                                     href="{{ route('permanent.delete.todo', ['id' => $task->id]) }}">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="24" height="24"
-                                                                                        viewBox="0 0 24 24" fill="none"
+                                                                                        style="color:red;" width="24"
+                                                                                        height="24" viewBox="0 0 24 24"
+                                                                                        fill="none"
                                                                                         stroke="currentColor"
                                                                                         stroke-width="2"
                                                                                         stroke-linecap="round"
