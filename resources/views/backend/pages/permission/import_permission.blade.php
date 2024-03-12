@@ -1,6 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-    <div class="page-content">
+    <div class="page-content" style="margin-bottom: 42vh;">
         <nav class="page-breadcrumb" style="display: flex">
             <ol class="breadcrumb">
                 <a href="{{ route('export') }}" class="btn btn-danger">Download Xlsx</a>

@@ -1,6 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-    <div class="page-content">
+    <div class="page-content" style="margin-bottom: 50vh;">
         <div class="row profile-body">
             <div class="col-md-8 col-xl-8 middle-wrapper">
                 <div class="row">

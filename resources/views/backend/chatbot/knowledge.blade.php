@@ -35,6 +35,7 @@
                                                 onmouseout="this.innerHTML='{{ $title->description }}'">
                                                 {{ substr($title->description, 0, 30) }}</td>
                                             <td>
+
                                                 @if (Auth::user()->can('edit.chatbot'))
                                                     <a href="{{ route('edit.chatbot', $title->id) }}"
                                                         class="btn btn-warning">
