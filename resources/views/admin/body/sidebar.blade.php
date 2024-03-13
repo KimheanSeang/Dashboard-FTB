@@ -18,7 +18,6 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-
             <li class="nav-item nav-category">Pages</li>
             @if (Auth::user()->can('chatbot.menu'))
                 <li class="nav-item">
@@ -103,7 +102,6 @@
                     </div>
                 </li>
             @endif
-
             @if (Auth::user()->can('task.menu'))
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#tables" role="button" aria-expanded="false"
@@ -136,7 +134,6 @@
                     </div>
                 </li>
             @endif
-
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
                     aria-controls="charts">
@@ -160,8 +157,6 @@
                     </ul>
                 </div>
             </li>
-
-
             @if (Auth::user()->can('permission.menu'))
                 <li class="nav-item nav-category">User Management</li>
             @endif
@@ -202,7 +197,6 @@
                     </div>
                 </li>
             @endif
-
             @if (Auth::user()->can('admin.menu'))
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#admin" role="button"aria-expanded="false"
@@ -228,7 +222,6 @@
                     </div>
                 </li>
             @endif
-
             <li class="nav-item nav-category">Docs</li>
             <li class="nav-item">
                 <a href="{{ route('document.document') }}" class="nav-link">
@@ -237,10 +230,5 @@
                 </a>
             </li>
         </ul>
-
     </div>
 </nav>
-
-{{--  <a class="nav-link"
-    data-bs-toggle="collapse" href="#general-pages" role="button" <a class="nav-link" data-bs-toggle="collapse"
-    href="#authPages" role="button" --}}
