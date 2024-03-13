@@ -154,6 +154,10 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('backend/assets/js/data-table.js') }}"></script>
     <!-- End custom js for this page -->
+    <script src="{{ asset('backend/assets/vendors/jquery.flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/jquery.flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/jquery.flot/jquery.flot.categories.js') }}"></script>
 
 
     <script src="{{ asset('backend/assets/js/dashboard-light.js') }}"></script>
@@ -162,17 +166,8 @@
     <script src="{{ asset('backend/assets/js/apexcharts-light-rtl.js') }}"></script>
     <script src="{{ asset('backend/assets/js/apexcharts-light.js') }}"></script>
     <script src="{{ asset('backend/assets/js/sortablejs-light.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/chartjs/Chart.min.js') }}"></script>
 
-    {{-- <script>
-        $(document).ready(function() {
-            $('.page-wrapper').addClass('animate__animated animate__fadeInDown');
-        });
-    </script> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}"> --}}
-
-    {{-- <div class=" animate__animated animate__fadeInDown"> --}}
-
-    {{-- </div> --}}
 </body>
 
 </html>

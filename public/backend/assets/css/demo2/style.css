@@ -22477,7 +22477,7 @@ div.tox .btn-group-lg > .btn-icon-text.tox-button .btn-icon-append,
 }
 .table th,
 .table td {
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 .table td img {
     width: 36px;

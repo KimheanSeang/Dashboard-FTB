@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\DownloadExport;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\assessment\AssessmentController;
 use App\Http\Controllers\Backend\RoleController;
