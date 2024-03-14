@@ -15,7 +15,7 @@
 
             body {
 
-                @apply bg-blue-200 w-full h-screen flex justify-center items-center
+                @apply bg-blue-300 w-full h-screen flex justify-center items-center
             }
 
             input {
@@ -44,9 +44,9 @@
 </head>
 
 <body>
-    <main class="bg-white w-full h-screen flex justify-center items-center">
+    <main class="bg-blue-300 w-full h-screen flex justify-center items-center">
         <div
-            class=" bg-white overflow-hident lg:p-20 relative w-[90%] h-[90%] border-2 border-white bg:blue-100 rounded-2xl container">
+            class=" bg-blue-300 overflow-hident lg:p-20 relative w-[90%] h-[90%] border-2 border-blue-300 bg:blue-100 rounded-2xl container">
             <div class="flex h-full flex-col items-center lg:flex-row p-10 lg:justify-between lg:p-20 gap-2 lg:gap-10 ">
                 <div class="lg:w-1/2">
                     {{-- <h1 class="text-2xl lg:text-4xl font-bold text-blue-800">FTB Bank</h1> --}}

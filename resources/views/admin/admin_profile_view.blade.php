@@ -35,8 +35,6 @@
                     </div>
                 </div>
             </div>
-            <!-- left wrapper end -->
-            <!-- middle wrapper start -->
             <div class="col-md-8 col-xl-8 middle-wrapper">
                 <div class="row">
                     <div class="col-md-12 grid-margin">
@@ -77,11 +75,10 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="formFile"></label>
-                                        <img id="ShowImages" class="wd-80 rounded-circle"
+                                        <img id="ShowImages" class="wd-80 rounded-circle "
                                             src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no.jpg') }}"
                                             alt="profile">
                                     </div>
-
                                     <button type="submit" class="btn btn-primary me-2">Save Changes</button>
                                 </form>
 
@@ -90,7 +87,6 @@
                     </div>
                 </div>
             </div>
-            <!-- middle wrapper end -->
         </div>
     </div>
 
@@ -107,3 +103,6 @@
         });
     </script>
 @endsection
+{{-- <img id="ShowImages" style="width: 80px; height: 80px; border-radius: 50%;"
+    src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no.jpg') }}"
+    alt="profile"> --}}

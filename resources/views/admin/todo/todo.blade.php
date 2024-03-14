@@ -19,11 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- End fonts -->
-    {{-- link styles for setting --}}
+
     {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/setting/setting.css') }}"> --}}
-    {{-- end link styles for setting --}}
-    <!-- core:css -->
+
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
     <!-- endinject -->
 
