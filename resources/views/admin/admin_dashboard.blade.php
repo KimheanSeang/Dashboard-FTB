@@ -58,6 +58,8 @@
     </style>
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
+
 </head>
 
 

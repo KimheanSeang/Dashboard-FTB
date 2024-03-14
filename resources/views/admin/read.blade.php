@@ -56,6 +56,7 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/readerror/read.css') }}">
     {{-- <script src="{{ asset('backend/assets/js/tinymce/tinymce.min.js') }}"></script> --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
 </head>
 
 {{-- <body class="sidebar-dark"> --}}

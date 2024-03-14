@@ -164,7 +164,7 @@
     </style>
 
 
-
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
 </head>
 
 

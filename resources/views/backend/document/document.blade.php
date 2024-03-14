@@ -157,6 +157,27 @@
                     </div>
                 </div>
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading8">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                        About User Profile
+                    </button>
+                </h2>
+                <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>User Profile Have 2 Function</strong>
+                        <div style="margin-left: 20px;">
+                            <p>1. Cick on profile in Header andd click on profile user is can change information of user in
+                                here.</p>
+                            <p>2. Function 2 is change password, User can change password in here by Enter old password and
+                                new password and comfirm new password.</p>
+                            <p>Not* : User Profile is we are forcus on Square Image it will clear image.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

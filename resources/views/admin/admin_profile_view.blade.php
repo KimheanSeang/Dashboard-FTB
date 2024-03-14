@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <div>
-                                <img class="wd-80 rounded-circle"
+                                <img class="circle80-image" {{-- class="wd-80 rounded-circle" --}}
                                     src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no.jpg') }}"
                                     alt="profile">
 
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="formFile"></label>
-                                        <img id="ShowImages" class="wd-80 rounded-circle "
+                                        <img id="ShowImages" class="circle80-image" {{-- class="wd-80 rounded-circle " --}}
                                             src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no.jpg') }}"
                                             alt="profile">
                                     </div>

@@ -52,6 +52,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
     <!-- End plugin css for this page -->
 
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
+
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/chatbot/addchat.css') }}">
     <script src="{{ asset('backend/assets/js/tinymce/tinymce.min.js') }}"></script>

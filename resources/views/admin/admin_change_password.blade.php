@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <div>
-                                <img class="wd-100 rounded-circle"
+                                <img class="circle100-image" {{-- class="wd-100 rounded-circle" --}}
                                     src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no_image.jpg') }}"
                                     alt="profile">
 
