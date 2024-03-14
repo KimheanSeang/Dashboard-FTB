@@ -31,7 +31,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">All Users Count</h6>
+                                    <h6 class="card-title mb-0">All User</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -60,12 +60,12 @@
                                     <div class="col-6 col-md-12 col-xl-5">
                                         <!-- User Count Section -->
                                         @php
-                                            $previousUsersCount = 500; // You need to fetch the previous count from somewhere, such as database
+                                            $previousUsersCount = 1; // You need to fetch the previous count from somewhere, such as database
                                             $currentUsersCount = App\Models\User::count();
                                             $usersCountChange = $currentUsersCount - $previousUsersCount;
                                             $usersCountChangePercentage =
                                                 $previousUsersCount != 0
-                                                    ? ($usersCountChange / $previousUsersCount) * 100
+                                                    ? ($usersCountChange * $previousUsersCount) / 100
                                                     : 0;
                                         @endphp
                                         <h3 class="mb-2">{{ $currentUsersCount }}</h3>
@@ -89,7 +89,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">All File Count</h6>
+                                    <h6 class="card-title mb-0">All File</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -117,12 +117,12 @@
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
                                         @php
-                                            $previousFilesCount = 1000; // You need to fetch the previous count from somewhere, such as database
+                                            $previousFilesCount = 1; // You need to fetch the previous count from somewhere, such as database
                                             $currentFilesCount = App\Models\UploadFile::count();
                                             $filesCountChange = $currentFilesCount - $previousFilesCount;
                                             $filesCountChangePercentage =
                                                 $previousFilesCount != 0
-                                                    ? ($filesCountChange / $previousFilesCount) * 100
+                                                    ? ($filesCountChange * $previousFilesCount) / 100
                                                     : 0;
                                         @endphp
                                         <h3 class="mb-2">{{ $currentFilesCount }}</h3>
@@ -145,7 +145,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">All Task Count</h6>
+                                    <h6 class="card-title mb-0">All Task</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -173,12 +173,12 @@
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
                                         @php
-                                            $previousTasksCount = 800; // You need to fetch the previous count from somewhere, such as database
+                                            $previousTasksCount = 5; // You need to fetch the previous count from somewhere, such as database
                                             $currentTasksCount = App\Models\Task::count();
                                             $tasksCountChange = $currentTasksCount - $previousTasksCount;
                                             $tasksCountChangePercentage =
                                                 $previousTasksCount != 0
-                                                    ? ($tasksCountChange / $previousTasksCount) * 100
+                                                    ? ($tasksCountChange * $previousTasksCount) / 100
                                                     : 0;
                                         @endphp
                                         <h3 class="mb-2">{{ $currentTasksCount }}</h3>

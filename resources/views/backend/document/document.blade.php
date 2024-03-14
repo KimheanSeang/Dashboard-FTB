@@ -173,7 +173,6 @@
                                 here.</p>
                             <p>2. Function 2 is change password, User can change password in here by Enter old password and
                                 new password and comfirm new password.</p>
-                            <p>Not* : User Profile is we are forcus on Square Image it will clear image.</p>
                         </div>
                     </div>
                 </div>

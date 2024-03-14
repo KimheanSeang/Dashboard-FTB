@@ -11,13 +11,13 @@ const LinkB = 'https://join.skype.com/shWclka7rGQk';    // Contact Team ATM
 const LinkC = 'https://join.skype.com/shWclka7rGQk';    // Contact Team Terminal
 
 
-
 const loadDataFromLocalstorage = () => {
     const themeColor = localStorage.getItem("themeColor");
     document.body.classList.toggle("light-mode", themeColor === "light_mode");
     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
     const defaultText = `<div class="default-text ">
+
     <img src="../images/chat.png" alt="chatbot-img">
         <h1>Chatbot</h1>
         <p>Hello how can I help you today?</p>
@@ -113,7 +113,7 @@ const handleButtonClick = (buttonNumber) => {
             buttonText = "";
     }
 
-    const outgoingChatDiv = createChatElement(`<div class="chat-content">
+    const outgoingChatDiv = createChatElement(`<div class="chat-content ">
         <div class="chat-details">
         <img src="../images/user.png" alt="user-img">
             <p>${buttonText}</p>
@@ -128,7 +128,7 @@ const handleButtonClick = (buttonNumber) => {
 
 // Add cases for new questions in handleQuestionSelection
 const handleQuestionSelection = async (selectedQuestion) => {
-    const outgoingChatDiv = createChatElement(`<div class="chat-content">
+    const outgoingChatDiv = createChatElement(`<div class="chat-content ">
         <div class="chat-details">
         <img src="../images/user.png" alt="user-img">
             <p>${selectedQuestion}</p>
@@ -255,7 +255,7 @@ const displayCardInfoButtons = () => {
 
 // response code
 const displayCardResponseButtons = () => {
-    const incomingChatDiv = createChatElement(`<div class="chat-content">
+    const incomingChatDiv = createChatElement(`<div class="chat-content ">
         <div class="chat-details">
             <img src="../images/chat.png" alt="chatbot-img">
         </div>

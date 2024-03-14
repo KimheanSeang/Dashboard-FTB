@@ -56,8 +56,8 @@
             padding: 0.2rem 0.85rem;
         }
     </style>
-
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
+
     <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
 
 </head>
@@ -170,6 +170,7 @@
     <script src="{{ asset('backend/assets/js/apexcharts-light.js') }}"></script>
     <script src="{{ asset('backend/assets/js/sortablejs-light.js') }}"></script>
     <script src="{{ asset('backend/assets/vendors/chartjs/Chart.min.js') }}"></script>
+
 
 </body>
 
