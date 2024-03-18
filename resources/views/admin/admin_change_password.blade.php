@@ -24,24 +24,14 @@
                             <p class="text-muted">{{ $profileData->email }}</p>
                         </div>
                         <div class="mt-3">
-                            <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone:</label>
+                            <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone Number:</label>
                             <p class="text-muted">{{ $profileData->phone }}</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Address:</label>
                             <p class="text-muted">{{ $profileData->address }}</p>
                         </div>
-                        <div class="mt-3 d-flex social-links">
-                            <a href="javascript:;" class="btn btn-icon border btn-xs me-2">
-                                <i data-feather="github"></i>
-                            </a>
-                            <a href="javascript:;" class="btn btn-icon border btn-xs me-2">
-                                <i data-feather="twitter"></i>
-                            </a>
-                            <a href="javascript:;" class="btn btn-icon border btn-xs me-2">
-                                <i data-feather="instagram"></i>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -52,7 +42,7 @@
                     <div class="col-md-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title">Admin Chnage Password</h6>
+                                <h6 class="card-title">Change Password</h6>
                                 <form class="forms-sample" method="POST" action="{{ route('admin.update.password') }}"
                                     enctype="multipart/form-data">
 

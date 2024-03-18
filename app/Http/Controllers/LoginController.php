@@ -1,23 +1,6 @@
 <?php
 
-// namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
-
-// class LoginController extends Controller
-// {
-//     public function username()
-//     {
-//         return 'phone';
-//     }
-//     protected function validateLogin(Request $request)
-//     {
-//         $request->validate([
-//             $this->username() => 'required',
-//             'password' => 'required',
-//         ]);
-//     }
-// }
 
 namespace App\Http\Controllers\Auth; // Corrected namespace
 

@@ -40,7 +40,7 @@
                     <div class="col-md-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title">Update Admin Profile</h6>
+                                <h6 class="card-title">Update Profile</h6>
                                 <form class="forms-sample" method="POST" action="{{ route('admin.profile.store') }}"
                                     enctype="multipart/form-data">
 

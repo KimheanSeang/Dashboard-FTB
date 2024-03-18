@@ -1,7 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
     <div class="page-content">
-
         <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
             <div>
                 <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
@@ -13,10 +12,20 @@
                     <input type="text" class="form-control bg-transparent border-primary" placeholder="Select date"
                         data-input>
                 </div>
-                <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
+                {{-- <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
+                    <i class="btn-icon-prepend" data-feather="printer"></i>
+                    Print
+                </button> --}}
+                <button id="printButton" type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
                     <i class="btn-icon-prepend" data-feather="printer"></i>
                     Print
                 </button>
+                <script>
+                    document.getElementById("printButton").addEventListener("click", function() {
+                        window.print();
+                    });
+                </script>
+
                 <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
                     <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                     Download Report
@@ -38,18 +47,11 @@
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                                    class="">Edit</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                    class="">Delete</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="printer" class="icon-sm me-2"></i> <span
-                                                    class="">Print</span></a>
+                                            @if (Auth::user()->can('all.admin'))
+                                                <a class="dropdown-item d-flex align-items-center"
+                                                    href="{{ route('all.admin') }}"><i data-feather="eye"
+                                                        class="icon-sm me-2"></i> <span class="">View</span></a>
+                                            @endif
                                             <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
                                                     data-feather="download" class="icon-sm me-2"></i> <span
                                                     class="">Download</span></a>
@@ -60,12 +62,13 @@
                                     <div class="col-6 col-md-12 col-xl-5">
                                         <!-- User Count Section -->
                                         @php
-                                            $previousUsersCount = 1; // You need to fetch the previous count from somewhere, such as database
+                                            $previousUsersCount = 1;
                                             $currentUsersCount = App\Models\User::count();
                                             $usersCountChange = $currentUsersCount - $previousUsersCount;
+
                                             $usersCountChangePercentage =
                                                 $previousUsersCount != 0
-                                                    ? ($usersCountChange * $previousUsersCount) / 100
+                                                    ? ($usersCountChange / $previousUsersCount) * 1
                                                     : 0;
                                         @endphp
                                         <h3 class="mb-2">{{ $currentUsersCount }}</h3>
@@ -74,11 +77,12 @@
                                                 <span>{{ $usersCountChangePercentage }}%</span>
                                                 <i data-feather="{{ $usersCountChange > 0 ? 'arrow-up' : 'arrow-down' }}"
                                                     class="icon-sm mb-1"></i>
-
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="col-6 col-md-12 col-xl-7">
+                                        {{-- <i class="mdi mdi-account-multiple-outline"></i> --}}
                                         <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
                                     </div>
                                 </div>
@@ -96,18 +100,11 @@
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                                    class="">Edit</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                    class="">Delete</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="printer" class="icon-sm me-2"></i> <span
-                                                    class="">Print</span></a>
+                                            @if (Auth::user()->can('chatbot.menu'))
+                                                <a class="dropdown-item d-flex align-items-center"
+                                                    href="{{ route('all.doc') }}"><i data-feather="eye"
+                                                        class="icon-sm me-2"></i> <span class="">View</span></a>
+                                            @endif
                                             <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
                                                     data-feather="download" class="icon-sm me-2"></i> <span
                                                     class="">Download</span></a>
@@ -122,7 +119,7 @@
                                             $filesCountChange = $currentFilesCount - $previousFilesCount;
                                             $filesCountChangePercentage =
                                                 $previousFilesCount != 0
-                                                    ? ($filesCountChange * $previousFilesCount) / 100
+                                                    ? ($filesCountChange / $previousFilesCount) * 1
                                                     : 0;
                                         @endphp
                                         <h3 class="mb-2">{{ $currentFilesCount }}</h3>
@@ -152,18 +149,11 @@
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                                    class="">Edit</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                    class="">Delete</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="printer" class="icon-sm me-2"></i> <span
-                                                    class="">Print</span></a>
+                                            @if (Auth::user()->can('all.task'))
+                                                <a class="dropdown-item d-flex align-items-center"
+                                                    href="{{ route('all.todo') }}"><i data-feather="eye"
+                                                        class="icon-sm me-2"></i> <span class="">View</span></a>
+                                            @endif
                                             <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
                                                     data-feather="download" class="icon-sm me-2"></i> <span
                                                     class="">Download</span></a>
@@ -173,12 +163,12 @@
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
                                         @php
-                                            $previousTasksCount = 5; // You need to fetch the previous count from somewhere, such as database
+                                            $previousTasksCount = 1; // You need to fetch the previous count from somewhere, such as database
                                             $currentTasksCount = App\Models\Task::count();
                                             $tasksCountChange = $currentTasksCount - $previousTasksCount;
                                             $tasksCountChangePercentage =
                                                 $previousTasksCount != 0
-                                                    ? ($tasksCountChange * $previousTasksCount) / 100
+                                                    ? ($tasksCountChange / $previousTasksCount) * 1
                                                     : 0;
                                         @endphp
                                         <h3 class="mb-2">{{ $currentTasksCount }}</h3>
@@ -193,6 +183,7 @@
 
                                     <div class="col-6 col-md-12 col-xl-7">
                                         <div id="growthChart" class="mt-md-3 mt-xl-0"></div>
+
                                     </div>
                                 </div>
                             </div>
@@ -258,6 +249,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

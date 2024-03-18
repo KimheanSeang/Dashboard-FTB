@@ -6,7 +6,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">All Document</h6>
+                        <h6 class="card-title">All Documents</h6>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>

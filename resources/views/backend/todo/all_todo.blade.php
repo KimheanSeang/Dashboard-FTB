@@ -38,6 +38,7 @@
         }
     </script>
     <div class="page-content">
+
         <div class="row profile-body">
             <div class="d-none d-md-block col-md-4 col-xl-3 left-wrapper todo-1">
                 <div class="card rounded">
@@ -58,8 +59,8 @@
                                                     style="font-size: 2.4vh; margin-right: 5px;color: rgb(197, 162, 6);"></i>
                                                 <span class="">Download All Task</span>
                                             </a>
-                                            @if (Auth::user()->can('ex_trash.task'))
-                                            @endif
+                                        @endif
+                                        @if (Auth::user()->can('ex_trash.task'))
                                             <a class="dropdown-item d-flex align-items-center"
                                                 style="color: rgb(12, 77, 162);" href="{{ route('export.trash.task') }}">
                                                 <i class="mdi mdi-export"
@@ -67,6 +68,7 @@
                                                 <span class="">Donload Trash Task</span>
                                             </a>
                                         @endif
+
                                     </div>
                                 </div>
                             @endif

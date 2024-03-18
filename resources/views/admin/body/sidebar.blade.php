@@ -18,22 +18,26 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">Pages</li>
-            @if (Auth::user()->can('chatbot.menu'))
+            @if (Auth::user()->can('all.chatbot'))
+                <li class="nav-item nav-category">Pages</li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button"
-                        aria-expanded="false" aria-controls="uiComponents">
+                    <a href="{{ route('all.chatbot') }}" class="nav-link ">
                         <i class="link-icon" data-feather="message-square"></i>
                         <span class="link-title">ChatBot</span>
+                    </a>
+                </li>
+            @endif
+            @if (Auth::user()->can('chatbot.menu'))
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
+                        aria-controls="charts">
+                        <i class="link-icon" data-feather="file-text"></i>
+                        <span class="link-title">Chatbot_Knowledge</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
-                    <div class="collapse" id="uiComponents">
+                    <div class="collapse" id="charts">
                         <ul class="nav sub-menu">
-                            @if (Auth::user()->can('all.chatbot'))
-                                <li class="nav-item">
-                                    <a href="{{ route('all.chatbot') }}" class="nav-link">ChatBot</a>
-                                </li>
-                            @endif
                             @if (Auth::user()->can('add.chatbot'))
                                 <li class="nav-item">
                                     <a href="{{ route('add.chatbot') }}" class="nav-link">Add Knowledge</a>
@@ -42,6 +46,11 @@
                             @if (Auth::user()->can('knowledge.chatbot'))
                                 <li class="nav-item">
                                     <a href="{{ route('knowledge.chatbot') }}" class="nav-link">All Knowledge</a>
+                                </li>
+                            @endif
+                            @if (Auth::user()->can('check.knowledge'))
+                                <li class="nav-item">
+                                    <a href="{{ route('check.knowledge') }}" class="nav-link">Check Knowledge</a>
                                 </li>
                             @endif
                         </ul>
@@ -134,29 +143,7 @@
                     </div>
                 </li>
             @endif
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
-                    aria-controls="charts">
-                    <i class="link-icon" data-feather="users"></i>
-                    <span class="link-title">Assessment User</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="charts">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('add.assessment') }}" class="nav-link">New User Assessment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('move.assessment') }}" class="nav-link">Move User
-                                Assessment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('all.assessment') }}" class="nav-link">Assessment User
-                                List</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+
             @if (Auth::user()->can('permission.menu'))
                 <li class="nav-item nav-category">User Management</li>
             @endif
@@ -217,7 +204,6 @@
                                     <a href="{{ route('add.admin') }}" class="nav-link">Add User</a>
                                 </li>
                             @endif
-
                         </ul>
                     </div>
                 </li>

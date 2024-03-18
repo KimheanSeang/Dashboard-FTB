@@ -168,6 +168,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/knowledge/chatbot', 'KnowledgeChat')->name('knowledge.chatbot')->middleware('permission:knowledge.chatbot');
         Route::get('/add/chatbot', 'AddChatbot')->name('add.chatbot')->middleware('permission:add.chatbot');
         Route::post('/store/chatbot', 'StoreChatbot')->name('store.chatbot');
+
+        Route::get('/check/knowledge', 'CheckKnowledge')->name('check.knowledge')->middleware('permission:check.knowledge');
+        Route::get('/view/knowledge/{id}', 'View_Chatbot')->name('view_knowledge.chatbot');
+        Route::get('/approve/knowledge{id}', 'ApproveKnowledge')->name('approve.knowledge');
+        Route::get('/delete/data/{id}', 'Delete')->name('delete.data');
     });
 
 

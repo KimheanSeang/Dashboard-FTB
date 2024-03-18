@@ -38,7 +38,7 @@
     <!-- Layout styles -->
     {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/app.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}"> --}}
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}" id="theme-style">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}">
     <!-- End layout styles -->
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
@@ -56,9 +56,13 @@
             padding: 0.2rem 0.85rem;
         }
     </style>
+
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/sweetalert2/sweetalert2.min.css') }}">
+
 
 </head>
 
@@ -88,12 +92,9 @@
 
     </div>
 
-
     <!-- core:js -->
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
-
-    <script src="{{ asset('backend/assets/vendors/feather-icons/feather.min.js') }}"></script>
 
     <script src="{{ asset('backend/assets/js/chat.js') }}"></script>
 
@@ -119,6 +120,7 @@
 
     <script src="{{ asset('backend/assets/js/jquery.flot-light.js') }}"></script>
     <!-- End custom js for this page -->
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
@@ -144,9 +146,9 @@
         @endif
     </script>
 
+    <script src="{{ asset('backend/assets/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/code/code.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 
 
     <!-- Plugin js for this page -->
@@ -170,8 +172,6 @@
     <script src="{{ asset('backend/assets/js/apexcharts-light.js') }}"></script>
     <script src="{{ asset('backend/assets/js/sortablejs-light.js') }}"></script>
     <script src="{{ asset('backend/assets/vendors/chartjs/Chart.min.js') }}"></script>
-
-
 </body>
 
 </html>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\chat;
 
 use App\Http\Controllers\Controller;
 use App\Models\ChatData;
+use App\Models\Knowledge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddChatController extends Controller
 {
@@ -19,6 +21,19 @@ class AddChatController extends Controller
     }
 
 
+    public function CheckKnowledge()
+    {
+        $knowledge = Knowledge::latest()->get();
+        return view('backend.chatbot.check_knowledge', ['knowledge' => $knowledge]);
+    }
+
+    public function View_Chatbot($id)
+    {
+        $data = Knowledge::findOrFail($id); // Replace YourModel with your actual model name
+        return view('backend.chatbot.view_knowledge', compact('data'));
+    }
+
+
     public function StoreChatbot(Request $request)
     {
         // Validate the form data
@@ -29,7 +44,7 @@ class AddChatController extends Controller
         ]);
 
         // Create a new ChatData instance
-        $chatData = new ChatData();
+        $chatData = new Knowledge();
         $chatData->title = $request->input('title');
         $chatData->short_description = $request->input('short_description');
         $chatData->description = $request->input('description');
@@ -83,5 +98,37 @@ class AddChatController extends Controller
 
         // Redirect with success message
         return redirect()->route('knowledge.chatbot')->with($notification);
+    }
+
+    public function Delete($id)
+    {
+        Knowledge::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Chat Knowledge  Deleted Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
+    }
+
+    public function ApproveKnowledge($id)
+    {
+        // Retrieve the file details before deleting
+        $chatData = Knowledge::findOrFail($id);
+
+        // Store the file details in the recovery table
+        ChatData::create([
+            'title' => $chatData->title,
+            'description' => $chatData->description,
+            'short_description' => $chatData->short_description,
+        ]);
+
+        // Now, delete the file
+        $chatData->delete();
+
+        $notification = [
+            'message' => 'Chat Knowledge Approve Successfully',
+            'alert-type' => 'success',
+        ];
+        return redirect()->back()->with($notification);
     }
 }

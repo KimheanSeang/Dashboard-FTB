@@ -241,7 +241,7 @@
         transform: scaleX(1);
     }
 }
-@keyframes pulse {
+/* @keyframes pulse {
     0% {
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
@@ -254,7 +254,7 @@
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
     }
-}
+} */
 .animate__pulse {
     -webkit-animation-name: pulse;
     animation-name: pulse;

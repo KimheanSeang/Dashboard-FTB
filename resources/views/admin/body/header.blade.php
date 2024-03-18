@@ -1,32 +1,21 @@
 @php
     use Illuminate\Support\Facades\Auth;
-    // Fetch the currently logged-in user
     $user = Auth::user();
 
-    // Ensure the user is authenticated
     if ($user) {
-        // Fetch tasks assigned to the logged-in user
         $tasks = App\Models\Task::where('user_task', 'like', "%{$user->name}%")->get();
     } else {
-        // If the user is not authenticated, initialize an empty array
         $tasks = [];
     }
 @endphp
+
 
 <nav class="navbar">
     <a href="#" class="sidebar-toggler">
         <i data-feather="menu"></i>
     </a>
     <div class="navbar-content">
-        <form class="search-form">
-            <div class="input-group">
-                <div class="input-group-text">
-                    <i data-feather="search"></i>
-                </div>
-                <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
 
-            </div>
-        </form>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
@@ -97,12 +86,17 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="bell"></i>
                     <div class="indicator">
-                        <div class="circle"></div>
+                        <div class="circle">
+                        </div>
                     </div>
                 </a>
+
                 <div class="dropdown-menu p-0 " aria-labelledby="notificationDropdown">
                     <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
                         <p>Notifications</p>
+                        <h5 id="notificationCount"
+                            style="color: white; background-color: red; height: 20px; width: 18px; border-radius: 50%; text-align: center;">
+                            {{ $tasks->count() }}</h5>
                     </div>
                     <div class="p-1">
                         @foreach ($tasks as $task)
@@ -164,6 +158,20 @@
                         </li>
                         <li class="dropdown-item py-2">
                             <a href="{{ route('admin.logout') }}" class="text-body ms-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-repeat me-2 icon-md">
+                                    <polyline points="17 1 21 5 17 9"></polyline>
+                                    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                    <polyline points="7 23 3 19 7 15"></polyline>
+                                    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                </svg>
+                                <span>Switch User</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item py-2">
+                            <a href="{{ route('admin.logout') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
                                 <span>Log Out</span>
                             </a>
@@ -175,3 +183,12 @@
         </ul>
     </div>
 </nav>
+<script>
+    // Update notification count dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the notification count element
+        const notificationCountElement = document.getElementById('notificationCount');
+        // Update the count based on the actual number of tasks
+        notificationCountElement.textContent = "{{ $tasks->count() }}";
+    });
+</script>

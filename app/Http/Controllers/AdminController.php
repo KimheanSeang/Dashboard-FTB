@@ -106,10 +106,10 @@ class AdminController extends Controller
 
         return redirect('/admin/login');
     }
+
     public function AdminLogin()
     {
         return view('admin.admin_login');
-
     }
 
     public function AllAdmin()

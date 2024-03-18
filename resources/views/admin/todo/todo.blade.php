@@ -63,6 +63,9 @@
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
+
+
+    {{-- <link rel="stylesheet" href="{{ asset('backend/assets/js/sweet-alert.js') }}"> --}}
 </head>
 
 
@@ -106,14 +109,14 @@
             }
         }
     </style>
-
     <!-- core:js -->
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
 
-    <script src="{{ asset('backend/assets/vendors/feather-icons/feather.min.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/vendors/sweetalert2/sweetalert2.min.js') }}"></script> --}}
 
     <script src="{{ asset('backend/assets/js/chat.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/js/sweet-alert.js') }}"></script> --}}
 
 
 

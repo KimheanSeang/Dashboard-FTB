@@ -1,13 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
     <div class="page-content">
-        <nav class="page-breadcrumb">
-            @if (Auth::user()->can('add.chatbot'))
-                <ol class="breadcrumb">
-                    <a href="{{ route('add.chatbot') }}" class="btn btn-info">Add Knowledge</a>
-                </ol>
-            @endif
-        </nav>
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -24,21 +17,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($titles as $key => $title)
+                                    @foreach ($knowledge as $key => $item)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $title->title }}</td>
-                                            <td>{{ $title->short_description }}</td>
-
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->short_description }}</td>
                                             <td>
-                                                @if (Auth::user()->can('edit.chatbot'))
-                                                    <a href="{{ route('edit.chatbot', $title->id) }}"
-                                                        class="btn btn-warning">
-                                                        Edit</a>
+                                                @if (Auth::user()->can('view.check_knowledge'))
+                                                    <a href="{{ route('view_knowledge.chatbot', $item->id) }}"
+                                                        class="btn btn-warning">View</a>
                                                 @endif
-                                                @if (Auth::user()->can('delete.chatbot'))
-                                                    <a href="{{ route('delete.chatbot', $title->id) }}"
-                                                        class="btn btn-danger" id="delete">
+                                                @if (Auth::user()->can('approve.knowledge'))
+                                                    <a href="{{ route('approve.knowledge', $item->id) }}"
+                                                        class="btn btn-info">
+                                                        Approve</a>
+                                                @endif
+                                                @if (Auth::user()->can('delete.check_knowledge'))
+                                                    <a href="{{ route('delete.data', $item->id) }}" class="btn btn-danger"
+                                                        id="delete">
                                                         Delete</a>
                                                 @endif
                                             </td>

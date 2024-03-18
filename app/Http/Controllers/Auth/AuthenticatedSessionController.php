@@ -35,9 +35,13 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->role === 'admin') {
             $url = '/admin/dashboard';
         }
+        // $notification = array(
+        //     'message' => 'User Login Successfully',
+        //     'alert-type' => 'success',
+        // );
 
+        // return redirect()->intended($url)->with($notification);
         return redirect()->intended($url);
-        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
