@@ -116,7 +116,7 @@
                     <a class="nav-link" data-bs-toggle="collapse" href="#tables" role="button" aria-expanded="false"
                         aria-controls="tables">
                         <i class="link-icon" data-feather="check-circle"></i>
-                        <span class="link-title">To-do list</span>
+                        <span class="link-title">To-do List</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
                     <div class="collapse" id="tables">

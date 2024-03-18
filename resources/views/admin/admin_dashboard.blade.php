@@ -55,6 +55,10 @@
         .table> :not(caption)>*>* {
             padding: 0.2rem 0.85rem;
         }
+
+        .modal-backdrop.show {
+            backdrop-filter: blur(5px);
+        }
     </style>
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animation/animate.css') }}">
@@ -62,7 +66,6 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/profile/profile.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/sweetalert2/sweetalert2.min.css') }}">
-
 
 </head>
 

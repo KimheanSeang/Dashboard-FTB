@@ -41,11 +41,13 @@
                                                             </td>
 
                                                             <td>
-                                                                <p title="{{ $task->title }}" style="font-weight: 900">
-                                                                    {{ \Illuminate\Support\Str::limit($task->title, 50) }}
+                                                                <p title="{{ $task->title }}"
+                                                                    style="font-weight: 500; {{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
+                                                                    {{ \Illuminate\Support\Str::limit($task->title, 80) }}
                                                                 </p>
-                                                                <p title="{{ $task->description }}">
-                                                                    {{ \Illuminate\Support\Str::limit($task->description, 70) }}
+                                                                <p title="{{ $task->description }}"
+                                                                    style="{{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
+                                                                    {{ \Illuminate\Support\Str::limit($task->description, 90) }}
                                                                 </p>
                                                             </td>
 

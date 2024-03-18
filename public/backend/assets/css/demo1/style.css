@@ -13344,6 +13344,7 @@ div.tox .tox-button .badge,
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
 }
+
 @keyframes pulse {
     0% {
         opacity: 1;

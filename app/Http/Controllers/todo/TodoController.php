@@ -15,8 +15,9 @@ class TodoController extends Controller
 {
     public function AllTodo()
     {
+        $users = User::all();
         $alltask = Task::latest()->get();
-        return view('backend.todo.all_todo', ['alltask' => $alltask]);
+        return view('backend.todo.all_todo', ['alltask' => $alltask], compact('users'));
     }
     public function AddTodo()
     {

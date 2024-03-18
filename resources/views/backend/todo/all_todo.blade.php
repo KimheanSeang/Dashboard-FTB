@@ -155,12 +155,15 @@
                                                                     value="{{ $task->id }}">
                                                             </td>
 
+
                                                             <td>
-                                                                <p title="{{ $task->title }}" style="font-weight: 900">
-                                                                    {{ \Illuminate\Support\Str::limit($task->title, 20) }}
+                                                                <p title="{{ $task->title }}"
+                                                                    style="font-weight: 500; {{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
+                                                                    {{ \Illuminate\Support\Str::limit($task->title, 60) }}
                                                                 </p>
-                                                                <p title="{{ $task->description }}">
-                                                                    {{ \Illuminate\Support\Str::limit($task->description, 50) }}
+                                                                <p title="{{ $task->description }}"
+                                                                    style="{{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
+                                                                    {{ \Illuminate\Support\Str::limit($task->description, 60) }}
                                                                 </p>
                                                             </td>
 
@@ -347,10 +350,6 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    {{-- <p
-                        style="margin-left: 20vh;width: 15vh; background-color: rgb(197, 162, 6); text-align: center; color: white; border-radius: 20px;">
-                        <span id="taskModalProcess" style=""></span>
-                    </p> --}}
                     <h5>Title: <span id="taskModalTitle"></span></h5>
 
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -385,5 +384,6 @@
 
         });
     </script>
+
 
 @endsection
