@@ -9,9 +9,6 @@
     }
 @endphp
 
-
-
-
 <nav class="navbar">
     <a href="#" class="sidebar-toggler">
         <i data-feather="menu"></i>
@@ -32,6 +29,7 @@
                             id="fr"></i> <span class="ms-1"> Khmer </span></a>
                 </div>
             </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

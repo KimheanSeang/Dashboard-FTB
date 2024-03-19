@@ -72,7 +72,8 @@
                                     </div>
 
 
-                                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                                    <button type="submit" class="btn btn-warning me-2">Save Changes</button>
+                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">Cancel</a>
                                 </form>
 
                             </div>

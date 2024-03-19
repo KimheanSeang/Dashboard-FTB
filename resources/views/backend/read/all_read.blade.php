@@ -7,10 +7,10 @@
                 <input class="search" type="text" id="searchKeyNumberInput"
                     placeholder="Search REF_No/TRXENG_No/Card Number" />
                 <button onclick="processFile()">Show</button>
-                <!-- <button onclick="searchKeyword()">Show Detail</button> -->
+
                 <br />
             </div>
-            <!-- <button onclick="processFile()">Show </button> -->
+
             <div id="output"></div>
 
             <script>

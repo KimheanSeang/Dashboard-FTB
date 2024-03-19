@@ -79,7 +79,8 @@
                                             src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no.jpg') }}"
                                             alt="profile">
                                     </div>
-                                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                                    <button type="submit" class="btn btn-warning me-2">Save Changes</button>
+                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">Cancel</a>
                                 </form>
 
                             </div>

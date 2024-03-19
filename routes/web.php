@@ -13,7 +13,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\todo\ExportController;
 use App\Http\Controllers\todo\TodoController;
 use App\Http\Controllers\todo\UserTodoController;
+use App\Http\Controllers\User\CheckUserController;
 use Illuminate\Support\Facades\Route;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -115,7 +120,10 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         Route::get('/reset/admin/{id}', 'ResetPassword')->name('reset.admin');
         Route::post('reset/admin/{id}', 'UpdatePassword')->name('reset.admin.update');
+
+        Route::get('/check/admin/{id}', 'CheckUser')->name('check.admin');
     });
+
 
 
 
@@ -150,14 +158,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     });
 
 
-
-
     /*|-------------------------------------File report Route-------------------------------------|*/
     Route::controller(RecoverController::class)->group(function () {
         Route::get('/delete/recover/{id}', 'DeleteRecover')->name('delete.recover');
         Route::get('/backup/recover/{id}', 'BackupRecover')->name('backup.recover');
     });
-
 
 
     /*|-------------------------------------Chatbot route-------------------------------------|*/
@@ -174,7 +179,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/approve/knowledge{id}', 'ApproveKnowledge')->name('approve.knowledge');
         Route::get('/delete/data/{id}', 'Delete')->name('delete.data');
     });
-
 
 
     /*|-------------------------------------Assessment Route x-------------------------------------|*/
@@ -202,8 +206,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::controller(ChatBotController::class)->group(function () {
         Route::get('/all/chatbot', 'AllChatBot')->name('all.chatbot');
     });
-
-
 
 
     /*|-------------------------------------Chat knowledge-------------------------------------|*/

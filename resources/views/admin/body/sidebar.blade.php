@@ -79,7 +79,7 @@
                             @endif
                             @if (Auth::user()->can('approve.menu'))
                                 <li class="nav-item">
-                                    <a href="{{ route('approve.doc') }}" class="nav-link">Documents Approval</a>
+                                    <a href="{{ route('approve.doc') }}" class="nav-link">Check Documents</a>
                                 </li>
                             @endif
 
@@ -122,7 +122,7 @@
                     <div class="collapse" id="tables">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
-                                <a href="{{ route('user.todo') }}" class="nav-link">All Task</a>
+                                <a href="{{ route('user.todo') }}" class="nav-link">User Task</a>
                             </li>
                             @if (Auth::user()->can('all.task'))
                                 <li class="nav-item">

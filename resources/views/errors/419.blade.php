@@ -20,22 +20,22 @@
     <!-- End fonts -->
 
     <!-- core:css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
     <!-- endinject -->
 
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/fonts/feather-font/css/iconfont.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <!-- endinject -->
 
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo2/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/demo2/style.css') }}">
     <!-- End layout styles -->
 
-    <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 </head>
 
 <body>
@@ -45,8 +45,7 @@
 
                 <div class="row w-100 mx-0 auth-page">
                     <div class="col-md-8 col-xl-6 mx-auto d-flex flex-column align-items-center">
-                        <img src="{{ asset('backend/assets/images/others/404.svg') }}" class="img-fluid mb-2"
-                            alt="404">
+                        <img src="{{ asset('assets/images/others/404.svg') }}" class="img-fluid mb-2" alt="404">
 
                         <h1 class="fw-bolder mb-22 mt-2 tx-80 text-muted">419</h1>
                         <h4 class="mb-2">
@@ -63,10 +62,10 @@
     </div>
 
 
-    <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
+    <script src="{{ asset('assets/vendors/core/core.js') }}"></script>
 
-    <script src="{{ asset('backend/assets/vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/template.js') }}"></script>
+    <script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/template.js') }}"></script>
 
 </body>
 
