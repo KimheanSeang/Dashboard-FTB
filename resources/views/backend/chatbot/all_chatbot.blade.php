@@ -9,7 +9,7 @@
 
 <head>
 
-    <link rel="shortcut icon" href="/backend/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
 </head>
 
 <body>

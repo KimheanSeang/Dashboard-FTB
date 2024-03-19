@@ -29,6 +29,7 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-warning me-2">Upload</button>
+                                    <a href="{{ route('all.permission') }}" type="button" class="btn btn-danger">Cancel</a>
                                 </form>
 
                             </div>

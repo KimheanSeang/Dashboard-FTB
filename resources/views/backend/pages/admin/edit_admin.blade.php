@@ -10,8 +10,6 @@
             <div class="col-md-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('all.admin') }}" style=" font-size: 25px; color: blue;"><i
-                                class="mdi mdi-arrow-left-bold-circle-outline"></i></a>
                         <h6 class="card-title">Create New User</h6>
                         <form class="forms-sample" method="POST" action="{{ route('update.admin', $user->id) }}"
                             enctype="multipart/form-data">
@@ -71,6 +69,7 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-warning me-2">Update</button>
+                            <a href="{{ route('all.admin') }}"><button class="btn btn-info me-2">Cancel</button></a>
                         </form>
                     </div>
                 </div>

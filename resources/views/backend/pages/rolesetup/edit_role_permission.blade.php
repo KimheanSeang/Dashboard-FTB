@@ -37,7 +37,9 @@
                                             <div class="col-3">
 
                                                 @php
-                                                    $permissions = App\Models\User::getPermissionByGroupName($group->group_name);
+                                                    $permissions = App\Models\User::getPermissionByGroupName(
+                                                        $group->group_name,
+                                                    );
                                                 @endphp
 
                                                 <div class="form-check mb-2">
@@ -71,7 +73,9 @@
                                         </div>
                                         {{-- end row --}}
                                     @endforeach
-                                    <button type="submit" class="btn btn-primary me-2">Save Roles</button>
+                                    <button type="submit" class="btn btn-warning me-2">Save Roles</button>
+                                    <a href="{{ route('all.roles.permission') }}" type="button"
+                                        class="btn btn-danger">Cancel</a>
                                 </form>
 
                             </div>

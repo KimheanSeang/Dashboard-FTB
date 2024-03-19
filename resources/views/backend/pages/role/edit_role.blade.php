@@ -22,7 +22,8 @@
                                         @enderror
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary me-2">Save Roles</button>
+                                    <button type="submit" class="btn btn-warning me-2">Save Roles</button>
+                                    <a href="{{ route('all.roles') }}" type="button" class="btn btn-danger">Cancel</a>
                                 </form>
                             </div>
                         </div>

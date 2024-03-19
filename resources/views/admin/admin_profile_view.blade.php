@@ -103,6 +103,3 @@
         });
     </script>
 @endsection
-{{-- <img id="ShowImages" style="width: 80px; height: 80px; border-radius: 50%;"
-    src="{{ !empty($profileData->photo) ? url('upload/admin_images/' . $profileData->photo) : url('upload/no.jpg') }}"
-    alt="profile"> --}}

@@ -4,7 +4,8 @@
         <nav class="page-breadcrumb">
             @if (Auth::user()->can('add.chatbot'))
                 <ol class="breadcrumb">
-                    <a href="{{ route('add.chatbot') }}" class="btn btn-info">Add Knowledge</a>
+                    <a href="{{ route('add.chatbot') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Add Knowledge</a>
                 </ol>
             @endif
         </nav>

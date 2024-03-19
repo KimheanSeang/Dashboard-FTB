@@ -4,7 +4,8 @@
         <nav class="page-breadcrumb" style="display: flex">
             @if (Auth::user()->can('add.permission'))
                 <ol class="breadcrumb">
-                    <a href="{{ route('add.permission') }}" class="btn btn-info">Add Permrission</a>
+                    <a href="{{ route('add.permission') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Add Permrission</a>
                 </ol>
             @endif
             &nbsp; &nbsp; &nbsp;
@@ -16,7 +17,7 @@
             &nbsp; &nbsp; &nbsp;
             @if (Auth::user()->can('export.permission'))
                 <ol class="breadcrumb">
-                    <a href="{{ route('export') }}" class="btn btn-danger">Export</a>
+                    <a href="{{ route('export') }}" id="export" class="btn btn-danger">Export</a>
                 </ol>
             @endif
         </nav>

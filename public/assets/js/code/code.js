@@ -373,4 +373,38 @@ $(function () {
 });
 
 
-
+// Export Permission
+$(function () {
+    $(document).on('click', '#export', function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Export Permission?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'No, cancel!',
+            confirmButtonText: 'Yes, Export it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Delete!',
+                    'Permission Export Successfully.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire(
+                    'Cancelled',
+                    'Export Permission has cancel:)',
+                    'error'
+                );
+                setTimeout(() => {
+                    Swal.close();
+                }, 500);
+            }
+        })
+    });
+});

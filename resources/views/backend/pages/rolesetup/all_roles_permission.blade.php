@@ -4,7 +4,8 @@
         <nav class="page-breadcrumb" style="display: flex">
             <ol class="breadcrumb">
                 @if (Auth::user()->can('add.roles'))
-                    <a href="{{ route('add.roles') }}" class="btn btn-info">Add Role</a>
+                    <a href="{{ route('add.roles') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Create New Role</a>
                 @endif
             </ol>
 
@@ -34,17 +35,7 @@
                                                     <span class="badge bg-danger">{{ $prem->name }}</span>
                                                 @endforeach
                                             </td>
-                                            {{-- <td>
-                                                @if (Auth::user()->can('edit.admin'))
-                                                    <a href="{{ route('admin.edit.roles', $item->id) }}"
-                                                        class="btn btn-warning">
-                                                        Edit</a>
-                                                @endif
-                                                @if (Auth::user()->can('delete.admin'))
-                                                    <a href="{{ route('admin.delete.roles', $item->id) }}"
-                                                        class="btn btn-danger" id="deleterolepermission">Delete</a>
-                                                @endif
-                                            </td> --}}
+
                                             <td>
                                                 <div class="dropdown mb-2" class="edit_todo">
                                                     <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"

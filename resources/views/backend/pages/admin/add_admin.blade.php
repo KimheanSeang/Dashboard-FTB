@@ -5,8 +5,6 @@
             <div class="col-md-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('all.admin') }}" style=" font-size: 25px; color: blue;"><i
-                                class="mdi mdi-arrow-left-bold-circle-outline"></i></a>
                         <h6 class="card-title">Create New User</h6>
                         @if ($errors->any())
                             <div class="alert alert-danger" role="alert">
@@ -79,6 +77,7 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-warning me-2">Submit</button>
+                            <a href="{{ route('all.admin') }}" class="btn btn-info me-2">Cancel</a>
                         </form>
                         <p style="color: red;" class="mt-3">Not*: User roles can be assigned here, but if you haven't done
                             so, you can assign them in the "Edit" function for all users. Simply navigate to the edit option

@@ -110,7 +110,7 @@
                         </div>
                         @if (Auth::user()->can('add.task'))
                             <a href="{{ route('add.todo') }}" onclick="navigateTo('{{ route('add.todo') }}')">
-                                <input type="button" class="add-button" value="+ Add New Task">
+                                <input type="button" class="add-button" value="Create New Task">
                             </a>
                         @endif
                     </div>

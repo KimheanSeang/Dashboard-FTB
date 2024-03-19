@@ -5,7 +5,8 @@
         <nav class="page-breadcrumb">
             @if (Auth::user()->can('add.doc'))
                 <ol class="breadcrumb">
-                    <a href="{{ route('add.doc') }}" class="btn btn-info">Upload
+                    <a href="{{ route('add.doc') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Upload
                         Document</a>
                 </ol>
             @endif

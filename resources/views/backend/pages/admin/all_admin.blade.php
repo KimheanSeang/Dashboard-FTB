@@ -7,7 +7,9 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 @if (Auth::user()->can('add.admin'))
-                    <a href="{{ route('add.admin') }}" class="btn btn-info">Add User</a>
+                    <a href="{{ route('add.admin') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Create
+                        New User</a>
                 @endif
             </ol>
         </nav>
@@ -22,7 +24,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Image</th>
-                                        <th>Name</th>
+                                        <th>User Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Role</th>

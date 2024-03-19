@@ -4,7 +4,8 @@
         <nav class="page-breadcrumb" style="display: flex">
             <ol class="breadcrumb">
                 @if (Auth::user()->can('add.roles'))
-                    <a href="{{ route('add.roles') }}" class="btn btn-info">Add Roles</a>
+                    <a href="{{ route('add.roles') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Add Roles</a>
                 @endif
             </ol>
 
