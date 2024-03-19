@@ -6,72 +6,75 @@
         }
     </style>
     <div class="page-content">
-        <div class="row profile-body">
-            <div class="col-md-12 col-xl-12 middle-wrapper">
-                <div class="row">
-                    <div class="col-md-12 grid-margin">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Edit User Admin</h6>
-                                <form class="forms-sample" method="POST" action="{{ route('update.admin', $user->id) }}"
-                                    enctype="multipart/form-data">
-
-                                    @csrf
-                                    <label for="exampleInputUserName" class="form-label">User Name</label>
-                                    <div class="form-group mb-3">
-                                        <input type="text" name="username" class="form-control"
-                                            value="{{ $user->username }}">
-                                    </div>
-
-
-                                    <label for="exampleInputName" class="form-label">Name</label>
-                                    <div class="form-group mb-3">
+        <div class="row">
+            <div class="col-md-12 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <a href="{{ route('all.admin') }}" style=" font-size: 25px; color: blue;"><i
+                                class="mdi mdi-arrow-left-bold-circle-outline"></i></a>
+                        <h6 class="card-title">Create New User</h6>
+                        <form class="forms-sample" method="POST" action="{{ route('update.admin', $user->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">User Name</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ $user->name }}">
+                                            placeholder="Enter User Name" value="{{ $user->name }}">
                                     </div>
-
-                                    <label for="exampleInputEmail" class="form-label">Email</label>
-                                    <div class="form-group mb-3">
-                                        <input type="text" name="email" class="form-control"
-                                            value="{{ $user->email }}">
+                                </div><!-- Col -->
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nick Name</label>
+                                        <input type="text" name="username" class="form-control"
+                                            placeholder="Nick Name is can be Null" value="{{ $user->username }}">
                                     </div>
-
-                                    <label for="exampleInputPhone" class="form-label">Phone Number</label>
-                                    <div class="form-group mb-3">
-                                        <input type="text" name="phone" class="form-control"
-                                            value="{{ $user->phone }}">
-                                    </div>
-
-                                    <label for="exampleInputAddress" class="form-label">Address</label>
-                                    <div class="form-group mb-3">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">City</label>
                                         <input type="text" name="address" class="form-control"
-                                            value="{{ $user->address }}">
+                                            placeholder="City Can Be Null" value="{{ $user->address }}">
                                     </div>
-
-                                    <label for="exampleInputRoleName" class="form-label">Role Name</label>
-                                    <div class="form-group mb-3">
-                                        <select name="roles" class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Select Role</option>
-
-                                            @foreach ($roles as $role)
-                                                <option value="{{ $role->id }}"
-                                                    {{ $user->hasRole($role->name) ? 'selected' : '' }}>{{ $role->name }}
-                                                </option>
-                                            @endforeach
-
-                                        </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone Number</label>
+                                        <input type="text" name="phone" class="form-control"
+                                            placeholder="Phone Number Can be Null" value="{{ $user->phone }}">
                                     </div>
-
-
-                                    <button type="submit" class="btn btn-primary me-2">Update</button>
-                                </form>
+                                </div>
 
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email address</label>
+                                        <input type="email" name="email" class="form-control" placeholder="Enter email"
+                                            value="{{ $user->email }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="exampleInputRoleName" class="form-label">Role Name</label>
+                            <div class="form-group mb-3">
+                                <select name="roles" class="form-select" id="exampleFormControlSelect1">
+                                    <option selected="" disabled="">Select Role</option>
+
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}"
+                                            {{ $user->hasRole($role->name) ? 'selected' : '' }}>{{ $role->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-warning me-2">Update</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- middle wrapper end -->
         </div>
     </div>
 @endsection

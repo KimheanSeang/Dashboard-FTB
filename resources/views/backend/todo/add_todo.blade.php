@@ -37,7 +37,8 @@
                                     <label for="description">Description:</label>
                                     <textarea id="myTextarea" name="description"></textarea>
                                     <button type="submit" class="btn btn-warning me-2 mt-2">Create Task</button>
-
+                                    <a href="{{ route('all.todo') }}"><button type="button"
+                                            class="btn btn-danger mt-2">Cancel</button></a>
                                 </form>
                             </div>
                         </div>

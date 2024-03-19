@@ -8,11 +8,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div style="display: flex">
-                                    <a href="{{ route('all.todo') }}">
-                                        <i class="mdi mdi-arrow-left-bold-circle" style="font-size: 25px; color:blue;">
-                                        </i>
-                                    </a>
-                                    <h6 class="card-title" style="margin-top:10px; margin-left:20px;">Edit Task</h6>
+                                    <h6 class="card-title" style="margin-top:10px;">Edit Task</h6>
                                 </div>
 
                                 @if ($errors->any())
@@ -48,7 +44,9 @@
                                     </div>
                                     <label for="description">Description:</label>
                                     <textarea id="myTextarea" name="description">{{ isset($task) ? $task->description : '' }}</textarea>
-                                    <button type="submit" class="btn btn-warning me-2 mt-4">Update Task</button>
+                                    <button type="submit" class="btn btn-warning me-2 mt-2">Update Task</button>
+                                    <a href="{{ route('all.todo') }}"><button type="button"
+                                            class="btn btn-danger mt-2">Cancel</button></a>
                                 </form>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
     $user = Auth::user();
 
     if ($user) {
-        $tasks = App\Models\Task::where('user_task', 'like', "%{$user->name}%")->get();
+        $tasks = App\Models\Task::where('user_task', $user->name)->get();
     } else {
         $tasks = [];
     }

@@ -21,7 +21,7 @@
                         <textarea id="myTextarea" name="description"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                        <input type="submit" name="submit" value="Save" class="btn btn-warning">
                     </div>
                 </form>
             </div>

@@ -10,8 +10,9 @@
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <div>
                                 <img class="wd-100 rounded-circle"
-                                    src="{{ !empty($profileData1->photo) ? url('upload/admin_images/' . $profileData1->photo) : url('upload/no_image.jpg') }}"
+                                    src="{{ !empty($profileData1->photo) ? url('upload/admin_images/' . $profileData1->photo) : url('upload/no.jpg') }}"
                                     alt="profile">
+
 
                                 <span class="h4 ms-3 ">{{ $profileData1->username }}</span>
                             </div>
@@ -53,6 +54,8 @@
                     <div class="col-md-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
+                                <a href="{{ route('all.admin') }}" style=" font-size: 25px; color: blue;"><i
+                                        class="mdi mdi-arrow-left-bold-circle-outline"></i></a>
                                 <h6 class="card-title">Reset Password</h6>
                                 <form class="forms-sample" method="POST"
                                     action="{{ route('reset.admin.update', $profileData1->id) }}">

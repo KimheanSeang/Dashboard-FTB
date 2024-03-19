@@ -33,11 +33,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('backend/assets/fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <!-- endinject -->
 
-    <!-- Layout styles -->
-    {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/app.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/css/demo1/style.css') }}">
     <!-- End layout styles -->
 

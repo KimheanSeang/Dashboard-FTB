@@ -2,9 +2,7 @@
 @section('admin')
     <main>
         <div class="container2">
-
             <div class="wrapper">
-                <a href="{{ route('knowledge.chatbot') }}"><i class="mdi mdi-backspace" style="font-size: 20px"></i></a>
                 <form action="{{ route('update.chatbot', ['id' => $title->id]) }}" method="post"
                     enctype="multipart/form-data">
                     @csrf
@@ -24,7 +22,9 @@
                         <textarea id="myTextarea" name="description">{{ $title->description }}</textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                        <button type="submit" name="submit" class="btn btn-warning">Save Change</button>
+                        <a href="{{ route('knowledge.chatbot') }}"><button type="button"
+                                class="btn btn-danger">Cancel</button></a>
                     </div>
                 </form>
             </div>

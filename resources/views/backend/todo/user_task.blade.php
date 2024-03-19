@@ -49,6 +49,7 @@
                                                                     style="{{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
                                                                     {{ \Illuminate\Support\Str::limit($task->description, 90) }}
                                                                 </p>
+
                                                             </td>
 
                                                             <td>
@@ -151,10 +152,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    {{-- <p
-                        style="margin-left: 20vh;width: 15vh; background-color: rgb(197, 162, 6); text-align: center; color: white; border-radius: 20px;">
-                        <span id="taskModalProcess" style=""></span>
-                    </p> --}}
+
                     <h5>Title: <span id="taskModalTitle"></span></h5>
 
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
