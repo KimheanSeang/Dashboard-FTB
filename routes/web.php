@@ -10,6 +10,7 @@ use App\Http\Controllers\doc\DocumentController;
 use App\Http\Controllers\doc\ReadErrorController;
 use App\Http\Controllers\doc\RecoverController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\todo\CheckTaskController;
 use App\Http\Controllers\todo\ExportController;
 use App\Http\Controllers\todo\TodoController;
 use App\Http\Controllers\todo\UserTodoController;
@@ -228,16 +229,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::post('/store/todo', 'StoreTask')->name('store.todo');
         Route::post('/update/todo/{id}', 'UpdateTask')->name('update.todo');
         Route::get('/delete/todo/{id}', 'DeleteTask')->name('delete.todo');
-
         Route::get('/todo/trash', 'showTrash')->name('trash.todo')->middleware('permission:trash.task');
         Route::get('/recover/todo/{id}', 'recoverTask')->name('recover.todo');
         Route::get('/permanent/delete/todo/{id}', 'permanentDeleteTask')->name('permanent.delete.todo');
-
         Route::post('/update-priority/{id}', 'updatePriority')->name('update.priority');
         Route::post('/update-status/{id}', 'updateStatus')->name('update.status');
-
         Route::match(['post'], '/save/todo', 'saveChanges')->name('save.changes');
 
+
+        Route::get('/check/todo', 'CheckTask')->name('check.todo');
 
         // Route::get('/view/todo/{id}', 'ViewTodo')->name('view.todo');
     });
@@ -251,6 +251,21 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         // Route::get('/show/todo/{id}', 'ShowTask')->name('show.todo');
     });
+
+    /*|-------------------------------------Todo Task-------------------------------------|*/
+    Route::controller(CheckTaskController::class)->group(function () {
+
+        Route::get('/check/todo', 'CheckTask')->name('check.todo')->middleware('permission:check.task');
+        Route::match(['post'], '/check/todo', 'CheckChanges')->name('check.changes');
+
+        Route::get('/edit/check/{id}', 'EditCheckTask')->name('edit.check');
+        Route::post('/update/check/{id}', 'UpdateCheckTask')->name('update.check');
+
+        Route::get('/delete/check/task/{id}', 'DeleteCheckTask')->name('delete.check.task');
+
+        Route::get('/approve/task{id}', 'ApproveTask')->name('approve.task');
+    });
+
 
 
     /*|-------------------------------------Export Task to excel-------------------------------------|*/

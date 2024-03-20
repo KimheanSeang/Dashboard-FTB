@@ -33,6 +33,7 @@
                                             <option value="document-approval">Document Approval</option>
                                             <option value="report">Report</option>
                                             <option value="task">Task</option>
+                                            <option value="checktask">CheckTask</option>
                                             <option value="assessment">Assessment</option>
                                         </select>
                                         @error('group_name')

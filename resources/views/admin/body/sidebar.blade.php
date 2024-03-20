@@ -139,6 +139,11 @@
                                     <a href="{{ route('trash.todo') }}" class="nav-link">Trash Task</a>
                                 </li>
                             @endif
+                            @if (Auth::user()->can('check.task'))
+                                <li class="nav-item">
+                                    <a href="{{ route('check.todo') }}" class="nav-link">Check Task</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </li>

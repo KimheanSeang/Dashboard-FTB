@@ -51,6 +51,9 @@
                                             <option value="task"
                                                 {{ $permission->group_name == 'task' ? 'selected' : '' }}>Task
                                             </option>
+                                            <option value="checktask"
+                                                {{ $permission->group_name == 'checktask' ? 'selected' : '' }}>CheckTask
+                                            </option>
                                             <option value="assessment"
                                                 {{ $permission->group_name == 'assessment' ? 'selected' : '' }}>Assessment
                                             </option>

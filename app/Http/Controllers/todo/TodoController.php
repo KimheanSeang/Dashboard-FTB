@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\todo;
 
-use App\Exports\AllTaskExport;
-use App\Exports\TrashTaskExport;
+
 use App\Http\Controllers\Controller;
+use App\Models\CheckTask;
 use App\Models\Task;
 use App\Models\TrashTask;
 use App\Models\User;
@@ -74,7 +74,7 @@ class TodoController extends Controller
         ]);
 
         // Create a new ChatData instance
-        $taskData = new Task();
+        $taskData = new CheckTask();
         $taskData->title = $request->input('title');
         $taskData->user_task = $request->input('user_task');
         $taskData->description = strip_tags($request->description);
