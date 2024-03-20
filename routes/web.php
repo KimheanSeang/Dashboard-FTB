@@ -1,6 +1,5 @@
 <?php
 
-use App\Exports\DownloadExport;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\assessment\AssessmentController;
 use App\Http\Controllers\Backend\RoleController;
@@ -14,7 +13,6 @@ use App\Http\Controllers\todo\CheckTaskController;
 use App\Http\Controllers\todo\ExportController;
 use App\Http\Controllers\todo\TodoController;
 use App\Http\Controllers\todo\UserTodoController;
-use App\Http\Controllers\User\CheckUserController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
@@ -88,7 +86,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     });
 
 
-
     /*|-------------------------------------Role and add permission to role route-------------------------------------|*/
     Route::controller(RoleController::class)->group(function () {
         Route::get('/all/roles', 'AllRoles')->name('all.roles')->middleware('permission:all.role');
@@ -106,9 +103,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')->name('admin.delete.roles');
     });
 
-
-
-
     /*|-------------------------------------User Route-------------------------------------|*/
     Route::controller(AdminController::class)->group(function () {
 
@@ -121,11 +115,12 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         Route::get('/reset/admin/{id}', 'ResetPassword')->name('reset.admin');
         Route::post('reset/admin/{id}', 'UpdatePassword')->name('reset.admin.update');
+
+
+        Route::get('/check/user', 'CheckUser')->name('check.user')->middleware('permission:user.check');
+        Route::get('/delete/check/{id}', 'DeleteCheck')->name('delete.check');
+        Route::get('/approve/user/{id}', 'ApproveUser')->name('approve.user');
     });
-
-
-
-
 
 
     /*|-------------------------------------Document Route-------------------------------------|*/
@@ -142,8 +137,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/delete/doc/{id}', 'DeleteDoc')->name('delete.doc');
         Route::get('/view/doc/{id}', 'viewFile')->name('view.doc');
     });
-
-
 
 
     /*|-------------------------------------Document Need approve-------------------------------------|*/
@@ -192,13 +185,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/all/doc', [DocumentController::class, 'AllFile'])->name('all.doc')->middleware('permission:all.doc');
 
 
-
     /*|-------------------------------------Read Error in log route-------------------------------------|*/
     Route::controller(ReadErrorController::class)->group(function () {
 
         Route::get('/all/read', 'AllRead')->name('all.read')->middleware('permission:all.read');
     });
-
 
 
     /*|-------------------------------------Chatbot controller-------------------------------------|*/
@@ -220,7 +211,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     });
 
 
-
     /*|-------------------------------------Todo Task-------------------------------------|*/
     Route::controller(TodoController::class)->group(function () {
         Route::get('/all/todo', 'AllTodo')->name('all.todo')->middleware('permission:all.task');
@@ -235,11 +225,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::post('/update-priority/{id}', 'updatePriority')->name('update.priority');
         Route::post('/update-status/{id}', 'updateStatus')->name('update.status');
         Route::match(['post'], '/save/todo', 'saveChanges')->name('save.changes');
-
-
-        Route::get('/check/todo', 'CheckTask')->name('check.todo');
-
-        // Route::get('/view/todo/{id}', 'ViewTodo')->name('view.todo');
     });
 
 
@@ -248,8 +233,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('user/todo', 'UserTask')->name('user.todo');
         Route::get('/remove/todo/{id}', 'RemoveTask')->name('remove.todo');
         Route::match(['post'], '/user/todo', 'UserChanges')->name('user.changes');
-
-        // Route::get('/show/todo/{id}', 'ShowTask')->name('show.todo');
     });
 
     /*|-------------------------------------Todo Task-------------------------------------|*/
@@ -257,15 +240,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         Route::get('/check/todo', 'CheckTask')->name('check.todo')->middleware('permission:check.task');
         Route::match(['post'], '/check/todo', 'CheckChanges')->name('check.changes');
-
         Route::get('/edit/check/{id}', 'EditCheckTask')->name('edit.check');
         Route::post('/update/check/{id}', 'UpdateCheckTask')->name('update.check');
-
         Route::get('/delete/check/task/{id}', 'DeleteCheckTask')->name('delete.check.task');
-
         Route::get('/approve/task{id}', 'ApproveTask')->name('approve.task');
     });
-
 
 
     /*|-------------------------------------Export Task to excel-------------------------------------|*/

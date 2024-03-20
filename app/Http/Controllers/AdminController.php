@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
+use App\Models\UserCheck;
 use App\Models\UserRecover;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -119,12 +120,18 @@ class AdminController extends Controller
         return view('backend.pages.admin.all_admin', compact('alladmin'));
     }
 
+    public function CheckUser()
+    {
+        $checkUser = UserCheck::where('role', 'admin')->get();
+        return view('backend.pages.admin.check_user', compact('checkUser'));
+    }
+
+
     public function AddAdmin()
     {
         $roles = Role::all();
         return view('backend.pages.admin.add_admin', compact('roles'));
     }
-
 
 
     public function EditAdmin($id)
@@ -157,7 +164,7 @@ class AdminController extends Controller
         ]);
 
         // Save user to database
-        $user = new User();
+        $user = new UserCheck();
         $user->username = $validatedData['username'] ?? null;
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
@@ -180,6 +187,47 @@ class AdminController extends Controller
 
         return redirect()->route('all.admin')->with($notification);
     }
+
+
+    public function ApproveUser($id)
+    {
+        // Retrieve the user details from the UserCheck table
+        $userCheck = UserCheck::findOrFail($id);
+
+        // Create a new user record in the users table
+        $user = User::create([
+            'username' => $userCheck->username,
+            'name' => $userCheck->name,
+            'email' => $userCheck->email,
+            'phone' => $userCheck->phone,
+            'address' => $userCheck->address,
+            'password' => $userCheck->password,
+            'role' => $userCheck->role,
+            'status' => $userCheck->status,
+        ]);
+
+        // Assign roles to the newly created user
+        if ($userCheck->roles()->count() > 0) {
+            foreach ($userCheck->roles as $role) {
+                $user->assignRole($role->name);
+            }
+        }
+
+        // Delete the user from the UserCheck table
+        $userCheck->delete();
+
+        // Set success notification
+        $notification = [
+            'message' => 'User Approved Successfully',
+            'alert-type' => 'success',
+        ];
+
+        // Redirect back with success message
+        return redirect()->back()->with($notification);
+    }
+
+
+
 
 
     public function UpdateAdmin(Request $request, $id)
@@ -211,6 +259,19 @@ class AdminController extends Controller
     public function DeleteAdmin($id)
     {
         $user = User::findOrFail($id);
+        if (!is_null($user)) {
+            $user->delete();
+        }
+        $notification = array(
+            'message' => 'User Admin Delete Successfully!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+    public function DeleteCheck($id)
+    {
+        $user = UserCheck::findOrFail($id);
         if (!is_null($user)) {
             $user->delete();
         }

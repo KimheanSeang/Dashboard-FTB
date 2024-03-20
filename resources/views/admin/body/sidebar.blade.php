@@ -209,6 +209,11 @@
                                     <a href="{{ route('add.admin') }}" class="nav-link">Add User</a>
                                 </li>
                             @endif
+                            @if (Auth::user()->can('user.check'))
+                                <li class="nav-item">
+                                    <a href="{{ route('check.user') }}" class="nav-link">Check User</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </li>

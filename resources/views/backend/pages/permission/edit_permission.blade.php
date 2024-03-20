@@ -32,6 +32,9 @@
                                             <option value="user"
                                                 {{ $permission->group_name == 'user' ? 'selected' : '' }}>User
                                             </option>
+                                            <option value="check"
+                                                {{ $permission->group_name == 'checkuser' ? 'selected' : '' }}>CheckUser
+                                            </option>
                                             <option value="chatbot"
                                                 {{ $permission->group_name == 'chatbot' ? 'selected' : '' }}>ChatBot
                                             </option>

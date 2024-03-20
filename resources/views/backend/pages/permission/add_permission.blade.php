@@ -27,6 +27,7 @@
                                             <option selected="" disabled="">Select Group</option>
                                             <option value="role">Role & Permission</option>
                                             <option value="user">User Mgt</option>
+                                            <option value="checkuser">Check User</option>
                                             <option value="chatbot">ChatBot</option>
                                             <option value="read">Read</option>
                                             <option value="doc">Document</option>
