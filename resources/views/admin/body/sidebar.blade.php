@@ -126,12 +126,12 @@
                             </li>
                             @if (Auth::user()->can('all.task'))
                                 <li class="nav-item">
-                                    <a href="{{ route('all.todo') }}" class="nav-link">All Admin</a>
+                                    <a href="{{ route('all.todo') }}" class="nav-link">Task Mgt</a>
                                 </li>
                             @endif
                             @if (Auth::user()->can('add.task'))
                                 <li class="nav-item">
-                                    <a href="{{ route('add.todo') }}" class="nav-link">Add Task</a>
+                                    <a href="{{ route('add.todo') }}" class="nav-link">Create Task</a>
                                 </li>
                             @endif
                             @if (Auth::user()->can('trash.task'))
