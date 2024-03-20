@@ -408,3 +408,157 @@ $(function () {
         })
     });
 });
+
+
+
+// Approve
+$(function () {
+    $(document).on('click', '#approveknowledge', function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Approve this Chatbot Knowledge?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'No, cancel!',
+            confirmButtonText: 'Yes, Approve it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Delete!',
+                    'Chatbot Knowledge approved Successfully.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire(
+                    'Cancelled',
+                    'Approve has been cancel:)',
+                    'error'
+                );
+                setTimeout(() => {
+                    Swal.close();
+                }, 500);
+            }
+        })
+    });
+});
+
+
+
+// Approve User
+$(function () {
+    $(document).on('click', '#approveuser', function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Approve this user?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'No, cancel!',
+            confirmButtonText: 'Yes, Approve user!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Delete!',
+                    'User Approved Successfully.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire(
+                    'Cancelled',
+                    'Approve user has been cancel:)',
+                    'error'
+                );
+                setTimeout(() => {
+                    Swal.close();
+                }, 500);
+            }
+        })
+    });
+});
+
+
+
+// Approve Task
+$(function () {
+    $(document).on('click', '#approvetask', function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Approve this Task?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'No, cancel!',
+            confirmButtonText: 'Yes, Approve Task!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Delete!',
+                    'Task Approved Successfully.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire(
+                    'Cancelled',
+                    'Approve Task has been cancel:)',
+                    'error'
+                );
+                setTimeout(() => {
+                    Swal.close();
+                }, 500);
+            }
+        })
+    });
+});
+
+
+
+
+
+// Approve Document
+$(function () {
+    $(document).on('click', '#approvedoc', function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Approve this Document?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'No, cancel!',
+            confirmButtonText: 'Yes, Approve it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Delete!',
+                    'Document Approved Successfully.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire(
+                    'Cancelled',
+                    'Approve Document has been cancel:)',
+                    'error'
+                );
+                setTimeout(() => {
+                    Swal.close();
+                }, 500);
+            }
+        })
+    });
+});

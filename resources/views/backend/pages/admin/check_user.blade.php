@@ -4,6 +4,15 @@
     {{-- <link rel="stylesheet" href="http://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.man.css"> --}}
     <link rel="stylesheet" href="{{ asset('backend/assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css') }}">
     <div class="page-content">
+        <nav class="page-breadcrumb">
+            <ol class="breadcrumb">
+                @if (Auth::user()->can('add.admin'))
+                    <a href="{{ route('add.admin') }}" class="btn btn-info"><i class="mdi mdi-plus-circle-outline"
+                            style="margin-right: 10px"></i>Create
+                        New User</a>
+                @endif
+            </ol>
+        </nav>
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -40,9 +49,13 @@
                                             </td>
 
                                             <td>
+                                                {{-- @if (Auth::user()->can('edit.')) --}}
+                                                <a href="{{ route('edit.user.check', $item->id) }}" class="btn btn-warning"
+                                                    title="edit">Edit</a>
+                                                {{-- @endif --}}
                                                 @if (Auth::user()->can('approve.user'))
                                                     <a href="{{ route('approve.user', $item->id) }}" class="btn btn-info"
-                                                        title="edit">Approve User</a>
+                                                        id="approveuser" title="edit">Approve User</a>
                                                 @endif
                                                 @if (Auth::user()->can('delete_user.check'))
                                                     <a href="{{ route('delete.check', $item->id) }}" class="btn btn-danger"

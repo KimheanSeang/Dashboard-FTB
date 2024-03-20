@@ -94,7 +94,7 @@
                                                                         aria-labelledby="dropdownMenuButton" style="">
                                                                         @if (Auth::user()->can('approve.task'))
                                                                             <a class="dropdown-item d-flex align-items-center"
-                                                                                style="color: blue;"
+                                                                                id="approvetask" style="color: blue;"
                                                                                 href="{{ route('approve.task', ['id' => $task->id]) }}">
                                                                                 <i class="mdi mdi-bookmark-check"
                                                                                     style="color: blue; margin-right: 5px;font-size: 16px;"></i>

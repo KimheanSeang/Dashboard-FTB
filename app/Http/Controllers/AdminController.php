@@ -141,6 +141,12 @@ class AdminController extends Controller
         return view('backend.pages.admin.edit_admin', compact('user', 'roles'));
     }
 
+    public function EditUserCheck($id)
+    {
+        $user = UserCheck::findOrFail($id);
+        $roles = Role::all();
+        return view('backend.pages.admin.edit_check', compact('user', 'roles'));
+    }
     public function StoreAdmin(Request $request)
     {
         // Log request data for debugging
@@ -253,6 +259,31 @@ class AdminController extends Controller
         );
 
         return redirect()->route('all.admin')->with($notification);
+    }
+
+    public function UpdateUserCheck(Request $request, $id)
+    {
+        $user = UserCheck::findOrFail($id);
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->role = 'admin';
+        $user->status = 'active';
+        $user->save();
+
+        $user->roles()->detach();
+        if ($request->roles) {
+            $user->assignRole($request->roles);
+        }
+
+        $notification = array(
+            'message' => 'User Updated Successfully!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('check.user')->with($notification);
     }
 
 

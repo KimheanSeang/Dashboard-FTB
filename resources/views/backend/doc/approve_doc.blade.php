@@ -48,7 +48,7 @@
                                                     @endif
                                                 @endif
                                                 @if (Auth::user()->can('Approve-Document'))
-                                                    <a href="{{ route('approve_doc.doc', $file->id) }}"
+                                                    <a href="{{ route('approve_doc.doc', $file->id) }}" id="approvedoc"
                                                         class="btn btn-success" id="approve">
                                                         Approve</a>
                                                 @endif

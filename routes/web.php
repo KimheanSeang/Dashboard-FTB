@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\assessment\AssessmentController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\chat\AddChatController;
+use App\Http\Controllers\chat\CheckKnowledgeController;
 use App\Http\Controllers\ChatBotController;
 use App\Http\Controllers\doc\DocumentController;
 use App\Http\Controllers\doc\ReadErrorController;
@@ -119,6 +120,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         Route::get('/check/user', 'CheckUser')->name('check.user')->middleware('permission:user.check');
         Route::get('/delete/check/{id}', 'DeleteCheck')->name('delete.check');
+        Route::get('/edit/user/check/{id}', 'EditUserCheck')->name('edit.user.check');
+        Route::post('/update/user/check/{id}', 'UpdateUserCheck')->name('update.user.check');
         Route::get('/approve/user/{id}', 'ApproveUser')->name('approve.user');
     });
 
@@ -170,6 +173,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/view/knowledge/{id}', 'View_Chatbot')->name('view_knowledge.chatbot');
         Route::get('/approve/knowledge{id}', 'ApproveKnowledge')->name('approve.knowledge');
         Route::get('/delete/data/{id}', 'Delete')->name('delete.data');
+    });
+
+
+
+    /*|-------------------------------------Chatbot route-------------------------------------|*/
+    Route::controller(CheckKnowledgeController::class)->group(function () {
+
+        Route::get('/edit/check/knowledge/{id}', 'Edit_checkKnowledge')->name('edit_check.chatbot');
+        Route::post('/update/check/knowledge/{id}', 'Update_CheckKnowledge')->name('update_check.chatbot');
     });
 
 

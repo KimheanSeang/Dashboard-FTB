@@ -27,9 +27,13 @@
                                                     <a href="{{ route('view_knowledge.chatbot', $item->id) }}"
                                                         class="btn btn-warning">View</a>
                                                 @endif
+                                                {{-- @if (Auth::user()->can('edit.')) --}}
+                                                <a href="{{ route('edit_check.chatbot', $item->id) }}"
+                                                    class="btn btn-primary" title="edit">Edit</a>
+                                                {{-- @endif --}}
                                                 @if (Auth::user()->can('approve.knowledge'))
                                                     <a href="{{ route('approve.knowledge', $item->id) }}"
-                                                        class="btn btn-info">
+                                                        id="approveknowledge" class="btn btn-info">
                                                         Approve</a>
                                                 @endif
                                                 @if (Auth::user()->can('delete.check_knowledge'))
