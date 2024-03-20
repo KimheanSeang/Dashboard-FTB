@@ -203,11 +203,4 @@ class TodoController extends Controller
 
         return redirect()->route('all.todo')->with($notification);
     }
-
-    // public function ViewTodo($id)
-    // {
-    //     $task = Task::findOrFail($id);
-    //     $users = User::all(); // Fetch users to populate the select dropdown
-    //     return view('backend.todo.view_task', compact('task', 'users'));
-    // }
 }

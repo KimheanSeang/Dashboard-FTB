@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Login Form</title>
+    <title>User Login</title>
     <link rel="shortcut icon" href="assets/images/favicon.png" />
     <style type="text/tailwindcss">
         @layer components {

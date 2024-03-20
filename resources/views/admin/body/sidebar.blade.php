@@ -18,7 +18,7 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            @if (Auth::user()->can('all.chatbot'))
+            @if (Auth::user()->can('chatbot'))
                 <li class="nav-item nav-category">Pages</li>
                 <li class="nav-item">
                     <a href="{{ route('all.chatbot') }}" class="nav-link ">
@@ -33,12 +33,12 @@
                     <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
                         aria-controls="charts">
                         <i class="link-icon" data-feather="file-text"></i>
-                        <span class="link-title">Chatbot_Knowledge</span>
+                        <span class="link-title">Chat_Knowledge</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
                     <div class="collapse" id="charts">
                         <ul class="nav sub-menu">
-                            @if (Auth::user()->can('add.chatbot'))
+                            @if (Auth::user()->can('add.knowledge'))
                                 <li class="nav-item">
                                     <a href="{{ route('add.chatbot') }}" class="nav-link">Add Knowledge</a>
                                 </li>
@@ -77,7 +77,7 @@
                                     <a href="{{ route('all.doc') }}" class="nav-link">All Document</a>
                                 </li>
                             @endif
-                            @if (Auth::user()->can('approve.menu'))
+                            @if (Auth::user()->can('approve.doc'))
                                 <li class="nav-item">
                                     <a href="{{ route('approve.doc') }}" class="nav-link">Check Documents</a>
                                 </li>

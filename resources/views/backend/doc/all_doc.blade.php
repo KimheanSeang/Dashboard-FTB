@@ -38,12 +38,13 @@
                                                 onmouseout="this.innerHTML='{{ $file->description }}'">
                                                 {{ substr($file->description, 0, 30) }}</td>
                                             <td>{{ $file->uploaded_by }}</td>
+
                                             <td>
-                                                @if (Auth::user()->can('file.doc'))
+                                                @if (Auth::user()->can('viewfile.doc'))
                                                     <a href="{{ route('view.doc', $file->id) }}" class="btn btn-primary"
                                                         target="_blank">View File</a>
                                                 @endif
-                                                @if (Auth::user()->can('data.doc'))
+                                                @if (Auth::user()->can('viewdata.doc'))
                                                     <a href="{{ route('show.doc', $file->id) }}" class="btn btn-info">
                                                         View Data
                                                     </a>

@@ -120,8 +120,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         Route::get('/reset/admin/{id}', 'ResetPassword')->name('reset.admin');
         Route::post('reset/admin/{id}', 'UpdatePassword')->name('reset.admin.update');
-
-        Route::get('/check/admin/{id}', 'CheckUser')->name('check.admin');
     });
 
 
@@ -149,7 +147,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     /*|-------------------------------------Document Need approve-------------------------------------|*/
     Route::controller(DocumentController::class)->group(function () {
-        Route::get('/approve/doc', 'ApproveDoc')->name('approve.doc')->middleware('permission:approve.menu');
+        Route::get('/approve/doc', 'ApproveDoc')->name('approve.doc')->middleware('permission:approve.doc');
         Route::get('/view_file/doc/{id}', 'ViewFileDocument')->name('view_file.doc');
         Route::get('/edit_approve/doc/{id}', 'EditDocument')->name('edit_approve.doc');
         Route::post('/update_approve/doc/{id}', 'UpdateDocument')->name('update_approve.doc');

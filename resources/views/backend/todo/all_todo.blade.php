@@ -5,8 +5,9 @@
         function navigateTo(url, type) {
             window.location.href = url;
             $('.todo-button button').removeClass('active');
-            if (type === 'all' || type === 'done' || type === 'important' || type === 'low' || type === 'medium' || type ===
-                'high') {
+            if (type === 'all' || type === 'done' || type === 'important' || type === 'in progress' || type === 'pending' ||
+                type ===
+                'closed') {
                 $('.todo-button button.inbox-button').addClass('active');
             } else if (type === 'trash') {
                 $('.todo-button button.trash-button').addClass('active');
@@ -28,7 +29,7 @@
                         $(this).show();
                     }
                 });
-            } else if (status === 'low' || status === 'medium' || status === 'high') {
+            } else if (status === 'in progress' || status === 'pending' || status === 'closed') {
                 $('.task-row select[name^="status_"]').each(function() {
                     if ($(this).val() === status) {
                         $(this).closest('.task-row').show();
@@ -83,14 +84,15 @@
                                 </button>
                             @endif
 
-                            <button type="button" class="done-button" onclick="filterTasks('Done')"><i
-                                    class="mdi mdi-check-circle"></i> Done</button>
+                            <button style="color: rgb(12, 77,162);" type="button" class="done-button"
+                                onclick="filterTasks('Done')"><i class="mdi mdi-check-circle"></i> Done</button>
 
-                            <button type="button" class="important-button" onclick="filterTasks('important')"><i
-                                    class="mdi mdi-star-circle"></i> Important</button>
+                            <button style="color: rgb(197, 162, 6);" type="button" class="important-button"
+                                onclick="filterTasks('important')"><i class="mdi mdi-star-circle"></i> Important</button>
 
                             @if (Auth::user()->can('trash.task'))
-                                <button type="button" class="{{ Request::routeIs('trash.todo') ? 'active' : '' }}"
+                                <button style="color: red" type="button"
+                                    class="{{ Request::routeIs('trash.todo') ? 'active' : '' }}"
                                     onclick="navigateTo('{{ route('trash.todo') }}', 'trash')">
                                     <i class="mdi mdi-delete-forever"></i> Trash
                                 </button>
@@ -100,17 +102,19 @@
                         <div>
                             <h2>Process</h2>
                             <div class="tags-button">
-                                <button type="button" class="low" onclick="filterTasks('low')"><i
-                                        class="mdi mdi-near-me"></i> Low</button>
-                                <button type="button" class="medium" onclick="filterTasks('medium')"><i
-                                        class="mdi mdi-near-me"></i> Medium</button>
-                                <button type="button" class="high" onclick="filterTasks('high')"><i
-                                        class="mdi mdi-near-me"></i> High</button>
+                                <button type="button" class="in-progress" onclick="filterTasks('in progress')"><i
+                                        class="mdi mdi-near-me"></i> In Progress</button>
+                                <button type="button" class="pending" onclick="filterTasks('pending')"><i
+                                        class="mdi mdi-near-me"></i> Pending</button>
+                                <button type="button" class="closed" onclick="filterTasks('closed')"><i
+                                        class="mdi mdi-near-me"></i> Closed</button>
                             </div>
                         </div>
                         @if (Auth::user()->can('add.task'))
                             <a href="{{ route('add.todo') }}" onclick="navigateTo('{{ route('add.todo') }}')">
-                                <input type="button" class="add-button" value="Create New Task">
+                                <button type="button" class="add-button"class="btn btn-warning me-2 mt-2"><i
+                                        class="mdi mdi-plus-circle-outline" style="margin-right: 10px"></i>Create New
+                                    Task</button>
                             </a>
                         @endif
                     </div>
@@ -169,16 +173,17 @@
 
 
                                                             <td>
-                                                                <select name="status_{{ $task->id }}" class="status1">
-                                                                    <option value="low"
-                                                                        {{ $task->process === 'low' ? 'selected' : '' }}>
-                                                                        Low</option>
-                                                                    <option value="medium"
-                                                                        {{ $task->process === 'medium' ? 'selected' : '' }}>
-                                                                        Medium</option>
-                                                                    <option value="high"
-                                                                        {{ $task->process === 'high' ? 'selected' : '' }}>
-                                                                        High</option>
+                                                                <select name="status_{{ $task->id }}"
+                                                                    class="status1">
+                                                                    <option value="in progress"
+                                                                        {{ $task->process === 'in progress' ? 'selected' : '' }}>
+                                                                        In Progress</option>
+                                                                    <option value="pending"
+                                                                        {{ $task->process === 'pending' ? 'selected' : '' }}>
+                                                                        Pending</option>
+                                                                    <option value="closed"
+                                                                        {{ $task->process === 'closed' ? 'selected' : '' }}>
+                                                                        Closed</option>
                                                                 </select>
                                                                 <input type="hidden"
                                                                     name="selected_status_{{ $task->id }}"

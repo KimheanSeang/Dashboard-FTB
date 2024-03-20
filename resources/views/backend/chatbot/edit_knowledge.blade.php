@@ -7,16 +7,28 @@
                     enctype="multipart/form-data">
                     @csrf
                     <!-- Replace with your PHP file name -->
+                    <div class="row mt-4">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label class="form-label" style="font-size: 14px;">Input Response Code</label>
+                                <input type="text" name="title" id="title" class="form-control"
+                                    placeholder="Enter Response Code" value="{{ $title->title }}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label class="form-label" style="font-size: 14px;">Input Error Message</label>
+                                <input type="text" name="short_description" id="short_description" class="form-control"
+                                    placeholder="Enter Error Message" value="{{ $title->short_description }}">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="title">Input Response Code :</label>
-                        <input type="text" name="title" class="form-control" id="title" required
-                            value="{{ $title->title }}">
                     </div>
                     <div class="form-group">
-                        <label for="short_description">Input Error Message :</label>
-                        <input type="text" name="short_description" class="form-control" id="short_description" required
-                            value="{{ $title->short_description }}">
                     </div>
+
                     <div class="form-group">
                         <label for="description">Description:</label>
                         <textarea id="myTextarea" name="description">{{ $title->description }}</textarea>

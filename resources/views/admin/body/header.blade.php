@@ -77,6 +77,13 @@
                                 <p class="tx-12">Read Error</p>
                             </a>
                         </div>
+                        <div class="col-3 text-center">
+                            <a href="{{ route('all.read') }}"
+                                class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70">
+                                <i data-feather="file-text"></i>
+                                <p class="tx-12">Read Error</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </li>

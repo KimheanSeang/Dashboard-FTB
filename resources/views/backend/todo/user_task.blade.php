@@ -54,16 +54,16 @@
 
                                                             <td>
                                                                 <select name="status_{{ $task->id }}" class="status1">
-                                                                    <option value="low"
-                                                                        {{ $task->process === 'low' ? 'selected' : '' }}>
-                                                                        Low
+                                                                    <option value="in progress"
+                                                                        {{ $task->process === 'in progress' ? 'selected' : '' }}>
+                                                                        In Progress
                                                                     </option>
-                                                                    <option value="medium"
-                                                                        {{ $task->process === 'medium' ? 'selected' : '' }}>
-                                                                        Medium </option>
-                                                                    <option value="high"
-                                                                        {{ $task->process === 'high' ? 'selected' : '' }}>
-                                                                        High
+                                                                    <option value="pending"
+                                                                        {{ $task->process === 'pending' ? 'selected' : '' }}>
+                                                                        Pending </option>
+                                                                    <option value="closed"
+                                                                        {{ $task->process === 'closed' ? 'selected' : '' }}>
+                                                                        Closed
                                                                     </option>
                                                                 </select>
                                                                 <input type="hidden"
