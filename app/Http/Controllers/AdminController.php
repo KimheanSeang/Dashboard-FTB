@@ -3,24 +3,27 @@
 namespace App\Http\Controllers;
 
 
+use App\Exports\UserExport;
 use App\Models\User;
 use App\Models\UserCheck;
-use App\Models\UserRecover;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
 
     public function AdminDashboard()
     {
-        return view('admin.index');
+        $alladmin = User::where('role', 'admin')->get();
+        return view('admin.index', compact('alladmin'));
+        // return view('admin.index');
     }
     public function AdminProfile()
     {
@@ -49,7 +52,7 @@ class AdminController extends Controller
         }
         $data->save();
         $notification = array(
-            'message' => 'Admin Profile Update Successfully!',
+            'message' => 'User Profile Update Successfully!',
             'alert-type' => 'success',
         );
 
@@ -169,6 +172,8 @@ class AdminController extends Controller
             'password.regex' => 'The password must be at least 8 characters long and contain at least 2 uppercase letters, 1 number, and 1 symbol.',
         ]);
 
+        $creator = Auth::user();
+
         // Save user to database
         $user = new UserCheck();
         $user->username = $validatedData['username'] ?? null;
@@ -176,6 +181,8 @@ class AdminController extends Controller
         $user->email = $validatedData['email'];
         $user->phone = $validatedData['phone'] ?? null;
         $user->address = $validatedData['address'] ?? null;
+        $user->created_by = $creator ? $creator->name : 'Anonymous';
+        $user->created_date = Carbon::now();
         $user->password = Hash::make($validatedData['password']);
         $user->role = 'admin';
         $user->status = 'active';
@@ -200,6 +207,8 @@ class AdminController extends Controller
         // Retrieve the user details from the UserCheck table
         $userCheck = UserCheck::findOrFail($id);
 
+        $approver = Auth::user();
+
         // Create a new user record in the users table
         $user = User::create([
             'username' => $userCheck->username,
@@ -207,6 +216,10 @@ class AdminController extends Controller
             'email' => $userCheck->email,
             'phone' => $userCheck->phone,
             'address' => $userCheck->address,
+            'created_by' => $userCheck->created_by,
+            'approved_by' => $approver ? $approver->name : 'Anonymous',
+            'created_date' => $userCheck->created_date,
+            'approved_at' => Carbon::now(),
             'password' => $userCheck->password,
             'role' => $userCheck->role,
             'status' => $userCheck->status,
@@ -254,7 +267,7 @@ class AdminController extends Controller
         }
 
         $notification = array(
-            'message' => 'User Admin Updated Successfully!',
+            'message' => 'User Updated Successfully!',
             'alert-type' => 'success',
         );
 
@@ -294,7 +307,7 @@ class AdminController extends Controller
             $user->delete();
         }
         $notification = array(
-            'message' => 'User Admin Delete Successfully!',
+            'message' => 'User Delete Successfully!',
             'alert-type' => 'success',
         );
 
@@ -307,7 +320,7 @@ class AdminController extends Controller
             $user->delete();
         }
         $notification = array(
-            'message' => 'User Admin Delete Successfully!',
+            'message' => 'User Delete Successfully!',
             'alert-type' => 'success',
         );
 
@@ -339,5 +352,20 @@ class AdminController extends Controller
         );
 
         return redirect()->route('all.admin')->with($notification);
+    }
+
+
+    // detail admin
+    public function DetailAdmin($id)
+    {
+        $profileData1 = User::findOrFail($id);
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        return view('backend.pages.admin.detail_user', compact('user', 'roles', 'profileData1'));
+    }
+    // Export User
+    public function ExportUser()
+    {
+        return Excel::download(new UserExport, 'AllUser.xlsx');
     }
 }

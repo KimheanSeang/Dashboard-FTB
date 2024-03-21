@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\todo;
 
+use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
 use App\Models\CheckTask;
@@ -79,6 +80,7 @@ class TodoController extends Controller
         $taskData->user_task = $request->input('user_task');
         $taskData->description = strip_tags($request->description);
         $taskData->create_by = $user ? $user->name : 'Anonymous';
+        $taskData->created_date = Carbon::now();
 
         // Save the chat data
         $taskData->save();
@@ -102,6 +104,11 @@ class TodoController extends Controller
         $trashTask->status = $task->status;
         $trashTask->process = $task->process;
         $trashTask->create_by = $task->create_by;
+        $trashTask->approved_by = $task->approved_by;
+        $trashTask->approved_at = $task->approved_at;
+        $trashTask->created_date = $task->created_date;
+
+
 
         $trashTask->save();
 
@@ -136,6 +143,9 @@ class TodoController extends Controller
         $task->status = $trashTask->status;
         $task->process = $trashTask->process;
         $task->create_by = $trashTask->create_by;
+        $task->approved_by = $trashTask->approved_by;
+        $task->approved_at = $trashTask->approved_at;
+        $task->created_date = $trashTask->created_date;
         $task->save();
 
         // Delete the task from the trash_task table

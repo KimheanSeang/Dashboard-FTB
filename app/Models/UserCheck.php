@@ -16,7 +16,7 @@ class UserCheck extends Model
     protected $table = 'user_check';
 
     protected $fillable = [
-        'username', 'name', 'email', 'email_verified_at', 'photo', 'phone', 'address', 'password', 'role', 'status'
+        'username', 'name', 'email', 'email_verified_at', 'photo', 'phone', 'address', 'created_by', 'created_date', 'password', 'role', 'status'
     ];
 
     // Specify the guard to use when checking for roles or permissions

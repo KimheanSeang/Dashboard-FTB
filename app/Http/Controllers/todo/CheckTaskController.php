@@ -7,6 +7,9 @@ use App\Models\CheckTask;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class CheckTaskController extends Controller
 {
@@ -109,13 +112,17 @@ class CheckTaskController extends Controller
     {
         // Retrieve the file details before deleting
         $taskData = CheckTask::findOrFail($id);
-
+        $approver = Auth::user();
         // Store the file details in the recovery table
         Task::create([
             'title' => $taskData->title,
             'user_task' => $taskData->user_task,
             'description' => $taskData->description,
             'create_by' => $taskData->create_by,
+            'approved_by' => $approver ? $approver->name : 'Anonymous',
+            'created_date' => $taskData->created_date,
+            'approved_at' => Carbon::now(),
+
         ]);
 
         // Now, delete the file

@@ -44,7 +44,7 @@
                 </a>
                 <div class="dropdown-menu p-0" aria-labelledby="appsDropdown">
                     <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
-                        <p class="mb-0 fw-bold">Pags</p>
+                        <p class="mb-0 fw-bold">Pages</p>
                     </div>
                     <div class="row g-0 p-1">
                         <div class="col-3 text-center">

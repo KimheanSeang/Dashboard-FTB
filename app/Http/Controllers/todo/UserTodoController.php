@@ -76,11 +76,4 @@ class UserTodoController extends Controller
 
         return redirect()->route('user.todo')->with($notification);
     }
-
-    // public function ShowTask($id)
-    // {
-    //     $task = Task::findOrFail($id);
-    //     $users = User::all(); // Fetch users to populate the select dropdown
-    //     return view('backend.todo.show_user_task', compact('task', 'users'));
-    // }
 }

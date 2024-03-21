@@ -12,10 +12,6 @@
                     <input type="text" class="form-control bg-transparent border-primary" placeholder="Select date"
                         data-input>
                 </div>
-                {{-- <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
-                    <i class="btn-icon-prepend" data-feather="printer"></i>
-                    Print
-                </button> --}}
                 <button id="printButton" type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
                     <i class="btn-icon-prepend" data-feather="printer"></i>
                     Print
@@ -82,7 +78,7 @@
                                     </div>
 
                                     <div class="col-6 col-md-12 col-xl-7">
-                                        {{-- <i class="mdi mdi-account-multiple-outline"></i> --}}
+
                                         <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
                                     </div>
                                 </div>
@@ -244,6 +240,44 @@
                                 </div><canvas class="flot-overlay" width="976" height="500"
                                     style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 781.2px; height: 400px;"></canvas>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">User</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Profile</th>
+                                        <th>UserName</th>
+                                        <th>User Email</th>
+                                        <th>Create At</th>
+                                        <th>Create By</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($alladmin as $key => $item)
+                                        @if ($key < 10)
+                                            <tr>
+                                                <td>
+                                                    <img
+                                                        src="{{ !empty($item->photo) ? url('upload/admin_images/' . $item->photo) : url('upload/no.jpg') }}">
+                                                </td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>{{ $item->created_by }}</td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

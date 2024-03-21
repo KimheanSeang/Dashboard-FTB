@@ -92,25 +92,8 @@
                     </div>
                 </li>
             @endif
-            @if (Auth::user()->can('read.menu'))
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
-                        aria-controls="forms">
-                        <i class="link-icon" data-feather="file"></i>
-                        <span class="link-title">Read Error</span>
-                        <i class="link-arrow" data-feather="chevron-down"></i>
-                    </a>
-                    <div class="collapse" id="forms">
-                        <ul class="nav sub-menu">
-                            @if (Auth::user()->can('all.read'))
-                                <li class="nav-item">
-                                    <a href="{{ route('all.read') }}" class="nav-link">Read Error in Log</a>
-                                </li>
-                            @endif
-                        </ul>
-                    </div>
-                </li>
-            @endif
+
+
             @if (Auth::user()->can('task.menu'))
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#tables" role="button" aria-expanded="false"
@@ -148,7 +131,14 @@
                     </div>
                 </li>
             @endif
-
+            @if (Auth::user()->can('all.read'))
+                <li class="nav-item">
+                    <a href="{{ route('all.read') }}" class="nav-link ">
+                        <i class="link-icon" data-feather="file"></i>
+                        <span class="link-title">Read Error In log</span>
+                    </a>
+                </li>
+            @endif
             @if (Auth::user()->can('permission.menu'))
                 <li class="nav-item nav-category">User Management</li>
             @endif

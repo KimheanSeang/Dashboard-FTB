@@ -72,7 +72,9 @@
                                             id="new_password_confirmation" autocomplete="off"
                                             placeholder="Confirm New Password">
                                     </div>
-                                    <button type="submit" class="btn btn-warning me-2">Reset Password</button>
+
+                                    <button type="submit" class="btn btn-warning me-2">Reset
+                                        Password</button>
                                     <a href="{{ route('all.admin') }}" class="btn btn-info me-2">Cancel</a>
                                 </form>
 

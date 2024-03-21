@@ -139,7 +139,6 @@
                                                     <th>Process</th>
                                                     <th>Imp</th>
                                                     <th>User</th>
-                                                    <th>Create By</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -204,9 +203,7 @@
                                                             <td>
                                                                 {{ $task->user_task }}
                                                             </td>
-                                                            <td>
-                                                                {{ $task->create_by }}
-                                                            </td>
+
                                                             <td>
                                                                 <div class="dropdown mb-2" class="edit_todo">
                                                                     <a type="button" id="dropdownMenuButton"

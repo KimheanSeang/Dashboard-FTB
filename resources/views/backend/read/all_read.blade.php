@@ -6,6 +6,7 @@
                 <input class="file" type="file" id="fileInput" />
                 <input class="search" type="text" id="searchKeyNumberInput"
                     placeholder="Search REF_No/TRXENG_No/Card Number" />
+
                 <button onclick="processFile()">Show</button>
 
                 <br />

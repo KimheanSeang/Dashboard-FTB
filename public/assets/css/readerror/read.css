@@ -110,7 +110,7 @@
     background-color: rgb(196, 160, 6);
 }
 #output {
-    height: 100vh;
+    height: 68vh;
     font-size: 15px;
     overflow-x: auto;
     overflow-y: auto;
@@ -132,8 +132,8 @@
     padding: 20px;
     border-radius: 4px;
     box-shadow: var(--box-shadow);
-    height: 88vh;
-    width: 163vh;
+    height: 80vh;
+    width: 165vh;
     color: var(--color-dark);
 }
 

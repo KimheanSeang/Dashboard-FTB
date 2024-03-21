@@ -13,7 +13,7 @@ class TrashTaskExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        return TrashTask::select('title', 'description', 'user_task', 'status', 'process', 'imp', 'created_at', 'updated_at')->get();
+        return TrashTask::select('title', 'description', 'user_task', 'status', 'process', 'imp', 'create_by', 'approved_by', 'created_date', 'approved_at')->get();
     }
 
     /**
@@ -28,8 +28,10 @@ class TrashTaskExport implements FromCollection, WithHeadings
             'Status',
             'Process',
             'Important',
-            'Created At',
-            'Updated At',
+            'Created By',
+            'Approved By',
+            'Created Date',
+            'Approved Date',
         ];
     }
 }

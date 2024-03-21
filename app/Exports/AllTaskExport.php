@@ -13,7 +13,7 @@ class AllTaskExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        return Task::select('title', 'description', 'user_task', 'status', 'process', 'imp', 'created_at', 'updated_at')->get();
+        return Task::select('title', 'description', 'user_task', 'status', 'process', 'imp', 'create_by', 'approved_by', 'created_date', 'approved_at')->get();
     }
 
     /**
@@ -28,8 +28,10 @@ class AllTaskExport implements FromCollection, WithHeadings
             'Status',
             'Process',
             'Important',
-            'Created At',
-            'Updated At',
+            'Created By',
+            'Approved By',
+            'Created Date',
+            'Approved Date',
         ];
     }
 }

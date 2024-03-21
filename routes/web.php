@@ -14,12 +14,14 @@ use App\Http\Controllers\todo\CheckTaskController;
 use App\Http\Controllers\todo\ExportController;
 use App\Http\Controllers\todo\TodoController;
 use App\Http\Controllers\todo\UserTodoController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,6 +115,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/edit/admin/{id}', 'EditAdmin')->name('edit.admin');
         Route::post('/update/admin/{id}', 'UpdateAdmin')->name('update.admin');
         Route::get('/delete/admin/{id}', 'DeleteAdmin')->name('delete.admin');
+        Route::get('/detail/admin/{id}', 'DetailAdmin')->name('detail.admin');
 
         Route::get('/reset/admin/{id}', 'ResetPassword')->name('reset.admin');
         Route::post('reset/admin/{id}', 'UpdatePassword')->name('reset.admin.update');
@@ -123,6 +126,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/edit/user/check/{id}', 'EditUserCheck')->name('edit.user.check');
         Route::post('/update/user/check/{id}', 'UpdateUserCheck')->name('update.user.check');
         Route::get('/approve/user/{id}', 'ApproveUser')->name('approve.user');
+
+        Route::get('export/user', 'ExportUser')->name('export.user');
     });
 
 
@@ -243,6 +248,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     /*|-------------------------------------User Task-------------------------------------|*/
     Route::controller(UserTodoController::class)->group(function () {
         Route::get('user/todo', 'UserTask')->name('user.todo');
+        Route::get('/view/user/task/{id}', 'ViewUserTask')->name('view_user.task');
         Route::get('/remove/todo/{id}', 'RemoveTask')->name('remove.todo');
         Route::match(['post'], '/user/todo', 'UserChanges')->name('user.changes');
     });
@@ -264,6 +270,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('export/all', 'ExportAllTask')->name('export.all.task');
         Route::get('export/trash', 'ExportTrashTask')->name('export.trash.task');
     });
+
+    // In your routes/web.php file
+
+
+
 });
 
 require __DIR__ . '/auth.php';

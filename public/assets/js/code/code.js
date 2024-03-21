@@ -27,12 +27,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Delete has been cancelled:)',
+                    'Your data now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -70,7 +70,7 @@ $(function () {
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -109,7 +109,7 @@ $(function () {
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -148,7 +148,7 @@ $(function () {
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -178,12 +178,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Delete Task has been cancelled:)',
+                    'The task now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         });
     });
@@ -215,12 +215,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Permanent delete Task has been cancelled:)',
+                    'Task in trash now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -251,12 +251,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Delete user has been cancelled:)',
+                    'User now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -288,12 +288,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Permanent delete has been cancelled:)',
+                    'The Permission now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -325,12 +325,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Delete role has been cancelled:)',
+                    'Role User now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -361,12 +361,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Permanent delete role has been cancelled:)',
+                    'Permission and Role now is safe:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -403,7 +403,7 @@ $(function () {
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -441,7 +441,7 @@ $(function () {
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -474,12 +474,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Approve user has been cancel:)',
+                    'Approve User now cancel:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -512,12 +512,12 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Approve Task has been cancel:)',
+                    'Approve task now cancel:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
@@ -552,13 +552,16 @@ $(function () {
             ) {
                 Swal.fire(
                     'Cancelled',
-                    'Approve Document has been cancel:)',
+                    'Approve Document now cancel:)',
                     'error'
                 );
                 setTimeout(() => {
                     Swal.close();
-                }, 500);
+                }, 800);
             }
         })
     });
 });
+
+
+
