@@ -13344,6 +13344,20 @@ div.tox .tox-button .badge,
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
 }
+.pulse,
+.navbar
+    .navbar-content
+    .navbar-nav
+    .nav-item
+    .nav-link
+    .indicator
+    .circle
+    .count::before {
+    animation-name: pulse;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
 
 @keyframes pulse {
     0% {

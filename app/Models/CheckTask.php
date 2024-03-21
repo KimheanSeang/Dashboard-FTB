@@ -10,5 +10,5 @@ class CheckTask extends Model
     use HasFactory;
     protected $table = 'check_task';
     protected $guarded = [];
-    protected $fillable = ['title', 'description', 'user_task', 'status', 'process', 'imp'];
+    protected $fillable = ['title', 'description', 'user_task', 'create_by', 'status', 'process', 'imp'];
 }

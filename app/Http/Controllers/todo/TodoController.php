@@ -9,7 +9,7 @@ use App\Models\Task;
 use App\Models\TrashTask;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -72,12 +72,13 @@ class TodoController extends Controller
             'description' => 'required',
             'user_task' => 'required',
         ]);
-
+        $user = Auth::user();
         // Create a new ChatData instance
         $taskData = new CheckTask();
         $taskData->title = $request->input('title');
         $taskData->user_task = $request->input('user_task');
         $taskData->description = strip_tags($request->description);
+        $taskData->create_by = $user ? $user->name : 'Anonymous';
 
         // Save the chat data
         $taskData->save();
@@ -100,6 +101,8 @@ class TodoController extends Controller
         $trashTask->description = $task->description;
         $trashTask->status = $task->status;
         $trashTask->process = $task->process;
+        $trashTask->create_by = $task->create_by;
+
         $trashTask->save();
 
         // Delete the task from todo_tasks table
@@ -132,6 +135,7 @@ class TodoController extends Controller
         $task->description = $trashTask->description;
         $task->status = $trashTask->status;
         $task->process = $trashTask->process;
+        $task->create_by = $trashTask->create_by;
         $task->save();
 
         // Delete the task from the trash_task table

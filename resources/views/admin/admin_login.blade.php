@@ -51,7 +51,7 @@
                 <div class="lg:w-1/2">
                     {{-- <h1 class="text-2xl lg:text-4xl font-bold text-blue-800">FTB Bank</h1> --}}
                     {{-- <p class="text-sm text-gray-600 ">Welcome to FTB Bank</p> --}}
-                    <img src="" class="w-[30rem] mt-5" alt="">
+                    {{-- <img src="./images/ftb_tower.png" class="w-[30rem] mt-5" alt=""> --}}
                 </div>
 
                 <form class="flex lg:w-1/2 flex-col w-full gap-5" method="POST" action="{{ route('login') }}">

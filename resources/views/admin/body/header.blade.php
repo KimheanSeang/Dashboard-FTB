@@ -77,13 +77,6 @@
                                 <p class="tx-12">Read Error</p>
                             </a>
                         </div>
-                        <div class="col-3 text-center">
-                            <a href="{{ route('all.read') }}"
-                                class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70">
-                                <i data-feather="file-text"></i>
-                                <p class="tx-12">Read Error</p>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </li>
@@ -97,7 +90,6 @@
                         </div>
                     </div>
                 </a>
-
                 <div class="dropdown-menu p-0 " aria-labelledby="notificationDropdown">
                     <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
                         <p>Notifications</p>

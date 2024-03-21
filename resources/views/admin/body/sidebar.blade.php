@@ -27,7 +27,7 @@
                     </a>
                 </li>
             @endif
-            @if (Auth::user()->can('chatbot.menu'))
+            @if (Auth::user()->can('knowledge.menu'))
 
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
@@ -206,7 +206,7 @@
                             @endif
                             @if (Auth::user()->can('add.admin'))
                                 <li class="nav-item">
-                                    <a href="{{ route('add.admin') }}" class="nav-link">Add User</a>
+                                    <a href="{{ route('add.admin') }}" class="nav-link">Create User</a>
                                 </li>
                             @endif
                             @if (Auth::user()->can('user.check'))

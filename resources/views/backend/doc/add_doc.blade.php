@@ -16,8 +16,9 @@
                         </div>
                         <label for="description">Description:</label>
                         <textarea id="myTextarea" name="description"></textarea>
-                        <div class="form-group">
-                            <input type="submit" name="submit" value="Save" class="btn btn-info">
+                        <div class="form-group mt-2">
+                            <input type="submit" name="submit" value="Upload Docs" class="btn btn-warning">
+                            <a href="{{ route('all.doc') }}" class="btn btn-danger me-2">Cancel</a>
                         </div>
                     </form>
                 </div>

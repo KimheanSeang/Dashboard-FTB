@@ -23,7 +23,7 @@
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Roles Nmae</label>
                                         <select name="role_id" class="form-select" id="exampleFormControlSelect1">
-                                            <option selected="" disabled="">Select Group</option>
+                                            <option selected="" disabled="">Select Role</option>
 
                                             @foreach ($roles as $role)
                                                 <option value="{{ $role->id }}">{{ $role->name }}</option>
@@ -81,7 +81,14 @@
                                         {{-- end row --}}
                                     @endforeach
                                     <button type="submit" class="btn btn-warning me-2">Save Roles</button>
+                                    <a href="{{ route('all.permission') }}" type="button" class="btn btn-danger">Cancel</a>
                                 </form>
+                                <p style="color: red;" class="mt-3">Not*: Only roles without any permissions can be added
+                                    here (* New role). If the role already has permissions assigned, please go to All Roles
+                                    &
+                                    Permissions
+                                    and click on edit to modify the permissions for that role.</p>
+
 
                             </div>
                         </div>

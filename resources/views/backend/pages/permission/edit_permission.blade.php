@@ -62,7 +62,7 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary me-2">Save Permission</button>
+                                    <button type="submit" class="btn btn-warning me-2">Save Permission</button>
                                     <a href="{{ route('all.permission') }}" type="button"
                                         class="btn btn-danger">Cancel</a>
                                 </form>

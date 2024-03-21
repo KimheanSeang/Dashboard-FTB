@@ -115,6 +115,7 @@ class CheckTaskController extends Controller
             'title' => $taskData->title,
             'user_task' => $taskData->user_task,
             'description' => $taskData->description,
+            'create_by' => $taskData->create_by,
         ]);
 
         // Now, delete the file

@@ -76,7 +76,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-warning me-2">Submit</button>
+                            <button type="submit" class="btn btn-warning me-2">Create User</button>
                             <a href="{{ route('all.admin') }}" class="btn btn-info me-2">Cancel</a>
                         </form>
                         <p style="color: red;" class="mt-3">Not*: User roles can be assigned here, but if you haven't done

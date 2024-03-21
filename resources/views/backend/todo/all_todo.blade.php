@@ -139,6 +139,7 @@
                                                     <th>Process</th>
                                                     <th>Imp</th>
                                                     <th>User</th>
+                                                    <th>Create By</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -163,11 +164,11 @@
                                                             <td>
                                                                 <p title="{{ $task->title }}"
                                                                     style="font-weight: 500; {{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
-                                                                    {{ \Illuminate\Support\Str::limit($task->title, 60) }}
+                                                                    {{ \Illuminate\Support\Str::limit($task->title, 30) }}
                                                                 </p>
                                                                 <p title="{{ $task->description }}"
                                                                     style="{{ $task->status == 'Done' ? 'text-decoration: line-through; text-decoration-color: rgb(12,77,162); text-decoration-thickness: 1.5px;' : '' }}">
-                                                                    {{ \Illuminate\Support\Str::limit($task->description, 60) }}
+                                                                    {{ \Illuminate\Support\Str::limit($task->description, 30) }}
                                                                 </p>
                                                             </td>
 
@@ -202,6 +203,9 @@
                                                             </td>
                                                             <td>
                                                                 {{ $task->user_task }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $task->create_by }}
                                                             </td>
                                                             <td>
                                                                 <div class="dropdown mb-2" class="edit_todo">

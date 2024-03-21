@@ -10,5 +10,5 @@ class TrashTask extends Model
     use HasFactory;
     protected $table = 'trash_task';
     protected $guarded = [];
-    protected $fillable = ['title', 'description', 'user_task', 'status', 'process', 'imp'];
+    protected $fillable = ['title', 'description', 'user_task', 'create_by', 'status', 'process', 'imp'];
 }

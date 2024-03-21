@@ -51,11 +51,11 @@
                                             <td>
                                                 {{-- @if (Auth::user()->can('edit.')) --}}
                                                 <a href="{{ route('edit.user.check', $item->id) }}" class="btn btn-warning"
-                                                    title="edit">Edit</a>
+                                                    title="edit">Edit </a>
                                                 {{-- @endif --}}
                                                 @if (Auth::user()->can('approve.user'))
                                                     <a href="{{ route('approve.user', $item->id) }}" class="btn btn-info"
-                                                        id="approveuser" title="edit">Approve User</a>
+                                                        id="approveuser" title="edit">Approve</a>
                                                 @endif
                                                 @if (Auth::user()->can('delete_user.check'))
                                                     <a href="{{ route('delete.check', $item->id) }}" class="btn btn-danger"

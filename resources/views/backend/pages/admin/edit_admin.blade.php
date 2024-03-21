@@ -68,8 +68,8 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-warning me-2">Update</button>
-                            <a href="{{ route('all.admin') }}"><button class="btn btn-info me-2">Cancel</button></a>
+                            <button type="submit" class="btn btn-warning me-2">Save Change</button>
+                            <a href="{{ route('all.admin') }}" class="btn btn-info me-2">Cancel</a>
                         </form>
                     </div>
                 </div>
