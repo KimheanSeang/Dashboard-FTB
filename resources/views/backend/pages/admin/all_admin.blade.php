@@ -12,8 +12,10 @@
                         New User</a>
                 @endif
                 &nbsp; &nbsp; &nbsp;
-                <a href="{{ route('export.user') }}" class="btn btn-warning"><i class="mdi mdi-download"
-                        style="margin-right: 10px"></i>Export All User</a>
+                @if (Auth::user()->can('export_user'))
+                    <a href="{{ route('export.user') }}" class="btn btn-warning"><i class="mdi mdi-download"
+                            style="margin-right: 10px"></i>Export All User</a>
+                @endif
             </ol>
         </nav>
         <div class="row">

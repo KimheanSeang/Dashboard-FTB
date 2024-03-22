@@ -245,10 +245,6 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     }
 
-
-
-
-
     public function UpdateAdmin(Request $request, $id)
     {
         $user = User::findOrFail($id);

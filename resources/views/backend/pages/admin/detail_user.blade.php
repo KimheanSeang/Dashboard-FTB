@@ -17,6 +17,7 @@
 
                         <form class="forms-sample" method="POST" enctype="multipart/form-data">
                             @csrf
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-3">
@@ -71,6 +72,7 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="row">
                                 <div class="col-sm-6" style="color: rgb(196,160,6)">
                                     <div class="mb-3">

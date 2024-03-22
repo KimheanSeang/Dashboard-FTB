@@ -2,7 +2,9 @@
     <div class="sidebar-header">
         <a href="{{ url('/admin/dashboard') }}">
             <img src="/images/logo.jpg" alt="Logo" class="ftb-logo">
+
         </a>
+
         <div class="sidebar-toggler not-active">
             <span></span>
             <span></span>
