@@ -10,6 +10,7 @@ use App\Http\Controllers\doc\DocumentController;
 use App\Http\Controllers\doc\ReadErrorController;
 use App\Http\Controllers\doc\RecoverController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Push\PushController;
 use App\Http\Controllers\todo\CheckTaskController;
 use App\Http\Controllers\todo\ExportController;
 use App\Http\Controllers\todo\TodoController;
@@ -271,10 +272,16 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('export/trash', 'ExportTrashTask')->name('export.trash.task');
     });
 
-    // In your routes/web.php file
 
 
-
+    /*|-------------------------------------Push Notification to shype and telegram-------------------------------------|*/
+    Route::controller(PushController::class)->group(function () {
+        Route::get('telegram/push', 'Telegram')->name('telegram.push');
+        Route::get('skype/push', 'Skype')->name('skype.push');
+        // Route::get('/view/user/task/{id}', 'ViewUserTask')->name('view_user.task');
+        // Route::get('/remove/todo/{id}', 'RemoveTask')->name('remove.todo');
+        // Route::match(['post'], '/user/todo', 'UserChanges')->name('user.changes');
+    });
 });
 
 require __DIR__ . '/auth.php';

@@ -46,8 +46,6 @@ class DocumentController extends Controller
         $filenames = Document::latest()->get();
         return view('backend.doc.approve_doc', ['filenames' => $filenames]);
     }
-
-
     public function store(Request $request)
     {
         // Validate the incoming request data
@@ -55,12 +53,15 @@ class DocumentController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'file1' => 'nullable|array',
-            'file1.*' => 'file|mimes:pdf,doc,docx,xls,xlsx,txt,php,html,js,css,java|max:2048', // Updated list of allowed file types
+            'file1.*' => 'file|mimes:pdf,doc,docx,xls,xlsx,txt,php,html,js,css,java|max:2048', // Updated list of allowed file types and max size
+        ], [
+            'file1.*.max' => 'One or more files exceed the maximum allowed size of 2MB.'
         ]);
-
 
         // Retrieve the currently authenticated user
         $user = Auth::user();
+
+
 
         // Handle file upload if files are provided
         if ($request->hasFile('file1')) {
@@ -69,7 +70,6 @@ class DocumentController extends Controller
             foreach ($files as $file) {
                 $filename = $file->getClientOriginalName();
 
-
                 // Store the file to the specified directory
                 $file->storeAs('/public/upload/document/', $filename);
 
@@ -77,7 +77,6 @@ class DocumentController extends Controller
                 $uploadedFile = new Document();
                 $uploadedFile->filename = $filename;
                 $uploadedFile->title = $request->title;
-                // $uploadedFile->description = strip_tags($request->description);
                 $uploadedFile->description = $request->description;
                 $uploadedFile->uploaded_by = $user ? $user->name : 'Anonymous';
                 $uploadedFile->save();
@@ -86,10 +85,11 @@ class DocumentController extends Controller
             $uploadedFile = new Document();
             $uploadedFile->title = $request->title;
             $uploadedFile->description = $request->description;
-            // $uploadedFile->description = strip_tags($request->description);
             $uploadedFile->uploaded_by = $user ? $user->name : 'Anonymous';
             $uploadedFile->save();
         }
+
+        // Set success message
         $notification = array(
             'message' => 'File(s) uploaded successfully',
             'alert-type' => 'success',
@@ -97,6 +97,57 @@ class DocumentController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+
+    // public function store(Request $request)
+    // {
+    //     // Validate the incoming request data
+    //     $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'description' => 'nullable|string',
+    //         'file1' => 'nullable|array',
+    //         'file1.*' => 'file|mimes:pdf,doc,docx,xls,xlsx,txt,php,html,js,css,java|max:2048', // Updated list of allowed file types
+    //     ]);
+
+
+    //     // Retrieve the currently authenticated user
+    //     $user = Auth::user();
+
+    //     // Handle file upload if files are provided
+    //     if ($request->hasFile('file1')) {
+    //         $files = $request->file('file1');
+
+    //         foreach ($files as $file) {
+    //             $filename = $file->getClientOriginalName();
+
+
+    //             // Store the file to the specified directory
+    //             $file->storeAs('/public/upload/document/', $filename);
+
+    //             // Store file details in the database along with the username
+    //             $uploadedFile = new Document();
+    //             $uploadedFile->filename = $filename;
+    //             $uploadedFile->title = $request->title;
+    //             // $uploadedFile->description = strip_tags($request->description);
+    //             $uploadedFile->description = $request->description;
+    //             $uploadedFile->uploaded_by = $user ? $user->name : 'Anonymous';
+    //             $uploadedFile->save();
+    //         }
+    //     } else {
+    //         $uploadedFile = new Document();
+    //         $uploadedFile->title = $request->title;
+    //         $uploadedFile->description = $request->description;
+    //         // $uploadedFile->description = strip_tags($request->description);
+    //         $uploadedFile->uploaded_by = $user ? $user->name : 'Anonymous';
+    //         $uploadedFile->save();
+    //     }
+    //     $notification = array(
+    //         'message' => 'File(s) uploaded successfully',
+    //         'alert-type' => 'success',
+    //     );
+
+    //     return redirect()->back()->with($notification);
+    // }
 
     public function ApproveDocument($id)
     {

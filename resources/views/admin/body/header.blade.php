@@ -155,6 +155,7 @@
                                 <span>Change Password</span>
                             </a>
                         </li>
+
                         <li class="dropdown-item py-2">
                             <a href="{{ route('admin.logout') }}" class="text-body ms-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"

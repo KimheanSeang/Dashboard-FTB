@@ -95,7 +95,6 @@
                 </li>
             @endif
 
-
             @if (Auth::user()->can('task.menu'))
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#tables" role="button" aria-expanded="false"
@@ -133,6 +132,32 @@
                     </div>
                 </li>
             @endif
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-toggle="collapse" href="#emails" role="button"
+                    aria-expanded="false" aria-controls="emails">
+                    <i class="mdi mdi-bell-ring-outline" style="font-size: 18px; margin-right: -19px;"></i>
+                    <span class="link-title">Push Notification</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-chevron-down link-arrow">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+                <div class="collapse" id="emails" style="">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('telegram.push') }}" class="nav-link">Push To Telegram</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('skype.push') }}" class="nav-link">Push To Skype</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
             @if (Auth::user()->can('all.read'))
                 <li class="nav-item">
                     <a href="{{ route('all.read') }}" class="nav-link ">
@@ -141,6 +166,10 @@
                     </a>
                 </li>
             @endif
+
+
+
+
             @if (Auth::user()->can('permission.menu'))
                 <li class="nav-item nav-category">User Management</li>
             @endif

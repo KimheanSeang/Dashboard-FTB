@@ -78,7 +78,6 @@
                                     </div>
 
                                     <div class="col-6 col-md-12 col-xl-7">
-
                                         <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
                                     </div>
                                 </div>
@@ -254,6 +253,7 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Profile</th>
                                         <th>UserName</th>
                                         <th>User Email</th>
@@ -265,6 +265,7 @@
                                     @foreach ($alladmin as $key => $item)
                                         @if ($key < 10)
                                             <tr>
+                                                <td>{{ $key + 1 }}</td>
                                                 <td>
                                                     <img
                                                         src="{{ !empty($item->photo) ? url('upload/admin_images/' . $item->photo) : url('upload/no.jpg') }}">
