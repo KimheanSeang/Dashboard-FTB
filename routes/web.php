@@ -10,18 +10,17 @@ use App\Http\Controllers\doc\DocumentController;
 use App\Http\Controllers\doc\ReadErrorController;
 use App\Http\Controllers\doc\RecoverController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Push\PushController;
 use App\Http\Controllers\todo\CheckTaskController;
 use App\Http\Controllers\todo\ExportController;
 use App\Http\Controllers\todo\TodoController;
 use App\Http\Controllers\todo\UserTodoController;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 
-use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,25 +34,23 @@ use Carbon\Carbon;
 
 /*|-------------------------------------Route When open first page-------------------------------------|*/
 
+
 Route::get('/', function () {
     return view('admin.admin_login');
 });
 
+/*|-------------------------------------Profile user and Route to Dashboard-------------------------------------|*/
+Route::middleware(['auth', 'checkExpiredSession'])->group(function () {
 
+    /*|-------------------------------------Admin Dashboard-------------------------------------|*/
+    Route::get('admin/dashboard', function () {
+        return view('admin/dashboard');
+    })->middleware(['auth', 'verified'])->name('admin/dashboard');
 
-/*|-------------------------------------Admin Dashboard-------------------------------------|*/
-Route::get('admin/dashboard', function () {
-    return view('admin/dashboard');
-})->middleware(['auth', 'verified'])->name('admin/dashboard');
-
-
-/*|-------------------------------------Profile User-------------------------------------|*/
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 
 /*|-------------------------------------Admin when login-------------------------------------|*/
@@ -120,7 +117,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/reset/admin/{id}', 'ResetPassword')->name('reset.admin');
         Route::post('reset/admin/{id}', 'UpdatePassword')->name('reset.admin.update');
 
-
         Route::get('/check/user', 'CheckUser')->name('check.user')->middleware('permission:user.check');
         Route::get('/delete/check/{id}', 'DeleteCheck')->name('delete.check');
         Route::get('/edit/user/check/{id}', 'EditUserCheck')->name('edit.user.check');
@@ -129,6 +125,9 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
         Route::get('export/user', 'ExportUser')->name('export.user');
     });
+
+    /*|-------------------------------------Document Route-------------------------------------|*/
+    Route::get('/all/doc', [DocumentController::class, 'AllFile'])->name('all.doc')->middleware('permission:all.doc');
 
 
     /*|-------------------------------------Document Route-------------------------------------|*/
@@ -157,6 +156,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/approve_delete/doc/{id}', 'ApproveDelete')->name('approve_delete.doc');
     });
 
+    /*|-------------------------------------Document Route-------------------------------------|*/
+    Route::controller(DocumentController::class)->group(function () {
+        Route::get('/document/document', 'AllDocument')->name('document.document');
+    });
+
 
     /*|-------------------------------------File report Route-------------------------------------|*/
     Route::controller(RecoverController::class)->group(function () {
@@ -180,7 +184,11 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/delete/data/{id}', 'Delete')->name('delete.data');
     });
 
-
+    /*|-------------------------------------Chat knowledge-------------------------------------|*/
+    Route::controller(AddChatController::class)->group(function () {
+        Route::get('/add/chatbot', 'AddChatbot')->name('add.chatbot');
+        Route::post('/store/chatbot', 'StoreChatbot')->name('store.chatbot');
+    });
 
     /*|-------------------------------------Chatbot route-------------------------------------|*/
     Route::controller(CheckKnowledgeController::class)->group(function () {
@@ -197,35 +205,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/move/assessment', 'MoveAssessment')->name('move.assessment');
     });
 
-
-    /*|-------------------------------------Document ROute-------------------------------------|*/
-    Route::get('/all/doc', [DocumentController::class, 'AllFile'])->name('all.doc')->middleware('permission:all.doc');
-
-
-    /*|-------------------------------------Read Error in log route-------------------------------------|*/
-    Route::controller(ReadErrorController::class)->group(function () {
-
-        Route::get('/all/read', 'AllRead')->name('all.read')->middleware('permission:all.read');
-    });
-
-
-    /*|-------------------------------------Chatbot controller-------------------------------------|*/
-    Route::controller(ChatBotController::class)->group(function () {
-        Route::get('/all/chatbot', 'AllChatBot')->name('all.chatbot');
-    });
-
-
-    /*|-------------------------------------Chat knowledge-------------------------------------|*/
-    Route::controller(AddChatController::class)->group(function () {
-        Route::get('/add/chatbot', 'AddChatbot')->name('add.chatbot');
-        Route::post('/store/chatbot', 'StoreChatbot')->name('store.chatbot');
-    });
-
-
-    /*|-------------------------------------Document Route-------------------------------------|*/
-    Route::controller(DocumentController::class)->group(function () {
-        Route::get('/document/document', 'AllDocument')->name('document.document');
-    });
 
 
     /*|-------------------------------------Todo Task-------------------------------------|*/
@@ -265,21 +244,108 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     });
 
 
+    /*|-------------------------------------Read Error in log route-------------------------------------|*/
+    Route::controller(ReadErrorController::class)->group(function () {
+
+        Route::get('/all/read', 'AllRead')->name('all.read')->middleware('permission:all.read');
+    });
+
+
+    /*|-------------------------------------Chatbot controller-------------------------------------|*/
+    Route::controller(ChatBotController::class)->group(function () {
+        Route::get('/all/chatbot', 'AllChatBot')->name('all.chatbot');
+    });
+
+
     /*|-------------------------------------Export Task to excel-------------------------------------|*/
     Route::controller(ExportController::class)->group(function () {
         Route::get('export/all', 'ExportAllTask')->name('export.all.task');
         Route::get('export/trash', 'ExportTrashTask')->name('export.trash.task');
     });
 
-    // In your routes/web.php file
 
-
-
+    /*|-------------------------------------Push Notification to shype and telegram-------------------------------------|*/
+    Route::controller(PushController::class)->group(function () {
+        Route::get('message', 'Message')->name('message.push');
+        Route::get('skype/push', 'Skype')->name('skype.push');
+    });
 });
+
+
+
+/*|-------------------------------------Push Notification to  telegram-------------------------------------|*/
+Route::post('/form-submit', function (Request $request) {
+
+    $botToken = env('TELEGRAM_BOT_TOKEN');
+    $chatId = env('TELEGRAM_CHAT_ID');
+
+    $userName = auth()->user()->name;
+    $title = $request->input('title');
+    $user1 = $request->input('user1');
+    $user2 = $request->input('user2');
+    $description = $request->input('description');
+    $telegramMessage = "New Message Push From Dashboard By : $userName \nTitle: $title\nTo: $user1\nAnd: $user2\ndescription: $description";
+    $telegramUrl = "https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&text=" . urlencode($telegramMessage);
+    $response = file_get_contents($telegramUrl);
+    if ($response === false) {
+        return response()->json(['error' => 'Failed to send message to Telegram'], 500);
+    }
+    Session::put('telegramFormData', [
+        'title' => $title,
+        'user1' => $user1,
+        'user2' => $user2,
+        'description' => $description,
+    ]);
+    return redirect()->route('telegram.push');
+});
+
+/*|-------------------------------------Route to form push message to telegram group-------------------------------------|*/
+Route::get('telegram/push', function () {
+    $formData = Session::get('telegramFormData');
+    Session::forget('telegramFormData');
+    return view('backend.push.telegram')->with('formData', $formData);
+})->name('telegram.push');
+/*|-------------------------------------End Push Notification to  telegram-------------------------------------|*/
+
 
 require __DIR__ . '/auth.php';
 
+
 /*|-------------------------------------End Route-------------------------------------|*/
 
-/*|-------------------------------------KIMhean@0203 kimhean/superadmin-------------------------------------|*/
-/*|-------------------------------------KIMHEAN@0203 user-------------------------------------|*/
+
+
+
+
+
+
+
+
+/*|-------------------------------------show user and password for log in to dashboard-------------------------------------|*/
+
+/*|-------------------------------------User Email Login "Kimhean@gmail.com"-------------------------------------|*/
+/*|-------------------------------------User Email Login "superadmin@gmail.com"-------------------------------------|*/
+/*|-------------------------------------User Email Login "checker@gmail.com"-------------------------------------|*/
+/*|-------------------------------------User Email Login "maker@gmail.com"-------------------------------------|*/
+/*|-------------------------------------User Email Login "admin@gmail.com"-------------------------------------|*/
+/*|-------------------------------------User Email Login "user@gmail.com"-------------------------------------|*/
+
+/*|-------------------------------------password for all suer-------------------------------------|*/
+/*|-------------------------------------Password Login "KIMhean@0203"-------------------------------------|*/
+/*|-------------------------------------End User Login to dashboard-------------------------------------|*/
+
+
+
+
+
+
+/*|-------------------------------------Not* to install push message to telegram group-------------------------------------|*/
+//composer require laravel-notification-channels/telegram
+
+
+
+/*|-------------------------------------laravel 11 Install Some-------------------------------------|*/
+
+/*|-------------------------------------php artisan install:broadcasting (install channels)-------------------------------------|*/
+/*|-------------------------------------php artisan install:api (install api)-------------------------------------|*/
+/*|-------------------------------------php artisan make:middleware EnsureTokenIsValid-------------------------------------|*/

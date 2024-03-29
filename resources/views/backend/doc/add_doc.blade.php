@@ -6,6 +6,16 @@
                 <div class="card-body">
                     <form action="{{ route('store.doc') }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                <i data-feather="alert-circle"></i>
+                                @foreach ($errors->all() as $error)
+                                    {{ $error }}
+                                @endforeach
+                            </div>
+                        @endif
+
+
                         <h2 style="text-align: center; font-size: 20px;">Store Document</h2>
                         <div class="form-group">
                             <input type="file" name="file1[]" class="form-control-file" id="file1" multiple>

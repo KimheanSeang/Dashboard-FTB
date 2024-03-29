@@ -13,3 +13,15 @@
     height: 30px;
     border-radius: 50%;
 }
+
+.circle45-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.circle36-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}

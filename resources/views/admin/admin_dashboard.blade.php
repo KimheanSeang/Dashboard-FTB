@@ -144,11 +144,11 @@
             }
         @endif
     </script>
-    {{-- <script src="{{ asset('assets/js/sweet-alert.js') }}"></script> --}}
-
+    <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('assets/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('assets/js/code/code.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 
     <!-- Plugin js for this page -->

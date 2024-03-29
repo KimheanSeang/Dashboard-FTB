@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
+
 class AdminController extends Controller
 {
 
@@ -104,11 +105,8 @@ class AdminController extends Controller
     public function AdminLogout(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/admin/login');
     }
 
@@ -116,6 +114,8 @@ class AdminController extends Controller
     {
         return view('admin.admin_login');
     }
+
+
 
     public function AllAdmin()
     {
@@ -349,6 +349,7 @@ class AdminController extends Controller
 
         return redirect()->route('all.admin')->with($notification);
     }
+
 
 
     // detail admin

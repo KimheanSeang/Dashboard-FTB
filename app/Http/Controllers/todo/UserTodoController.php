@@ -33,6 +33,7 @@ class UserTodoController extends Controller
         $trashTask->status = $task->status;
         $trashTask->process = $task->process;
         $trashTask->create_by = $task->create_by;
+        $trashTask->approved_by = $task->approved_by;
 
         $trashTask->save();
 
